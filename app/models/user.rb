@@ -7,5 +7,13 @@ class User < ApplicationRecord
   has_many :vues
   has_one :criterium
 
-  validates :username, :conjoint1, :platforms, presence: true
+  after_create :default_criterium
+
+  private
+
+  def default_criterium
+    Criterium.create(user: self)
+  end
+
+  # validates :username, :conjoint1, :platforms, presence: true
 end

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_06_15_140639) do
+ActiveRecord::Schema.define(version: 2020_06_16_152814) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -18,7 +18,7 @@ ActiveRecord::Schema.define(version: 2020_06_15_140639) do
   create_table "criteria", force: :cascade do |t|
     t.integer "duration"
     t.integer "rating"
-    t.string "platforms", default: [], array: true
+    t.string "platforms", default: ["cpd", "dnp", "ftv", "itu", "nfx", "ocs", "prv"], array: true
     t.bigint "user_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
