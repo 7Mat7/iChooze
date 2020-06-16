@@ -2,6 +2,9 @@ class CriteriaController < ApplicationController
   require 'open-uri'
   require 'net/http'
   require 'openssl'
+  
+  def create
+  end
 
   def update
     providers = ["nfx"]
@@ -32,6 +35,10 @@ class CriteriaController < ApplicationController
   end
 
   private
+
+  def criteria_params
+    params.require(:criteria).permit(:platforms, :duration, :rating)
+  end
 
   def generate_movie(movie)
     url = "https://apis.justwatch.com/content/titles/movie/#{@choice}/locale/fr_FR"
