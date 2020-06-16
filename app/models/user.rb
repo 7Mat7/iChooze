@@ -7,5 +7,4 @@ class User < ApplicationRecord
   has_many :vues
   has_one :criterium
 
-  validates :username, :conjoint1, :platforms, presence: true
 end
