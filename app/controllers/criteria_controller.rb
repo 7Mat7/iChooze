@@ -2,8 +2,22 @@ require 'open-uri'
 require 'net/http'
 require 'openssl'
 class CriteriaController < ApplicationController
+  skip_before_action :authenticate_user!, only: [:create]
+
+  def edit
+    @criterium = Criterium.find(params[:id])
+  end
 
   def create
+    if current_user.nil?
+      session[:search] = params.require(:criterium).permit(:duration, :rating, platforms: [])
+      redirect_to new_user_session_path, notice: 'Merci de vous connectez pour ...'
+    else
+      @criterium = Criterium.new(criteria_params)
+      @criterium.user = current_user
+      @criterium.save!
+      redirect_to edit_criterium_path(@criterium)
+    end
   end
 
   def update
