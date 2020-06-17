@@ -2,6 +2,7 @@ require 'open-uri'
 require 'net/http'
 require 'openssl'
 class CriteriaController < ApplicationController
+
   skip_before_action :authenticate_user!, only: [:create]
 
   def edit
@@ -35,7 +36,7 @@ class CriteriaController < ApplicationController
 
     @movie_duration = []
     movies["items"].each do |movie|
-      html_file = open("https://apis.justwatch.com/content/titles/movie/#{movie["id"]}/locale/fr_FR").read
+      html_file = open("https://apis.justwatch.com/content/titles/movie/#{movie["id"]}/locale/en_US").read
       html_doc = JSON.parse(html_file)
       @movie_duration << { duration: html_doc["runtime"], id: html_doc["id"] }
     end
@@ -58,11 +59,16 @@ class CriteriaController < ApplicationController
   end
 
   def generate_movie(movie)
-    url = "https://apis.justwatch.com/content/titles/movie/#{@choice}/locale/fr_FR"
+    url = "https://apis.justwatch.com/content/titles/movie/#{@choice}/locale/en_US"
     html_file = open(url).read
     html_doc = JSON.parse(html_file)
+
+    title = html_doc["title"]
+    get_info(title)
+
     @urls = []
 
+binding.pry
     helpers.translate_platform(current_user.criterium.platforms).map do |b|
       html_doc["offers"].find do |a|
         if a["urls"]["standard_web"].include?(b)
@@ -72,5 +78,42 @@ class CriteriaController < ApplicationController
     end
 
     render 'pages/home'
+  end
+
+  def get_info(movie)
+    api_key = ENV["TMDB_KEY"]
+    url_for_id = "https://api.themoviedb.org/3/search/movie?api_key=#{api_key}&language=en-US&query=#{movie}&page=1&include_adult=false"
+    html_file_for_id = open(url_for_id).read
+    html_doc_for_id = JSON.parse(html_file_for_id)
+    tmdb_id = html_doc_for_id["results"][0]["id"]
+
+    image_url_base = "https://image.tmdb.org/t/p/w500"
+
+    url_for_info = "https://api.themoviedb.org/3/movie/#{tmdb_id}?api_key=7bf83a9105f9107994967650371b6126&language=en-US"
+    html_file_for_info = open(url_for_info).read
+    html_doc_for_info = JSON.parse(html_file_for_info)
+
+    url_for_credits = "https://api.themoviedb.org/3/movie/#{tmdb_id}/credits?api_key=7bf83a9105f9107994967650371b6126"
+    html_file_for_credits = open(url_for_credits).read
+    html_doc_for_credits = JSON.parse(html_file_for_credits)
+
+    director = ""
+    html_doc_for_credits["crew"].find do |a|
+      if a["job"] == "Director"
+        director = a["name"]
+      end
     end
+    cast = []
+    html_doc_for_credits["cast"].first(3).each do |a|
+      cast << a["name"]
+    end
+    title = movie
+    rating = html_doc_for_info["vote_average"]
+    synopsis = html_doc_for_info["overview"]
+    image = image_url_base + html_doc_for_info["poster_path"]
+    duration = html_doc_for_info["runtime"]
+    date = html_doc_for_info["release_date"]
+
+ Movie.create(title: title, synopsis: synopsis, date: date, duration: duration, rating: rating, director: director, photo_url: image, cast: cast)
+  end
 end
