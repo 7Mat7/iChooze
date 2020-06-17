@@ -4,7 +4,6 @@ class PagesController < ApplicationController
   before_action :set_criterium, only: [:home]
 
   def home
-
   end
 
   private
@@ -12,6 +11,8 @@ class PagesController < ApplicationController
   def set_criterium
     if current_user.present?
       @criterium = current_user.criterium
+    else
+      @criterium = Criterium.new
     end
   end
 end
