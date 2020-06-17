@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_06_16_152814) do
+ActiveRecord::Schema.define(version: 2020_06_17_104223) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -18,7 +18,7 @@ ActiveRecord::Schema.define(version: 2020_06_16_152814) do
   create_table "criteria", force: :cascade do |t|
     t.integer "duration"
     t.integer "rating"
-    t.string "platforms", default: ["cpd", "dnp", "ftv", "itu", "nfx", "ocs", "prv"], array: true
+    t.string "platforms", default: ["cpd", "dnp", "itu", "nfx", "ocs", "prv"], array: true
     t.bigint "user_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
@@ -50,7 +50,6 @@ ActiveRecord::Schema.define(version: 2020_06_16_152814) do
     t.string "username"
     t.string "conjoint1"
     t.string "conjoint2"
-    t.string "platforms", default: [], array: true
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
