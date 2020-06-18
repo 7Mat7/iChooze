@@ -63,21 +63,20 @@ class CriteriaController < ApplicationController
     html_file = open(url).read
     html_doc = JSON.parse(html_file)
 
-    title = html_doc["title"]
-    get_info(title)
-
     @urls = []
 
-binding.pry
-    helpers.translate_platform(current_user.criterium.platforms).map do |b|
+    binding.pry
+    helpers.translate_platform(current_user.criterium.platforms).each do |b|
       html_doc["offers"].find do |a|
-        if a["urls"]["standard_web"].include?(b)
+        if a["urls"]["standard_web"] && a["urls"]["standard_web"].include?(b)
           @urls << a["urls"]["standard_web"]
         end
       end
     end
 
-    render 'pages/home'
+    title = html_doc["title"]
+    get_info(title)
+    redirect_to movie_path(@movie)
   end
 
   def get_info(movie)
@@ -114,6 +113,6 @@ binding.pry
     duration = html_doc_for_info["runtime"]
     date = html_doc_for_info["release_date"]
 
- Movie.create(title: title, synopsis: synopsis, date: date, duration: duration, rating: rating, director: director, photo_url: image, cast: cast)
+  @movie = Movie.create(title: title, synopsis: synopsis, date: date, duration: duration, rating: rating, director: director, photo_url: image, cast: cast)
   end
 end
