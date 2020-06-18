@@ -7,6 +7,7 @@ class MoviesController < ApplicationController
   end
 
   def index
+    @movies = current_user.movies
   end
 
   def redirect
