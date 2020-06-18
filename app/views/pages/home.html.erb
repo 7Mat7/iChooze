@@ -1,18 +1,18 @@
 <h1>Pages#home</h1>
 <p>Find me in app/views/pages/home.html.erb</p>
 
-<%= simple_form_for @criterium, url: criteria_path, method: 'post' do |f| %>
-  <%= f.input :platforms, as: :check_boxes, collection: @criterium.platforms%>
-  <%= f.input :rating, collection: 1..10, as: :radio_buttons %>
-  <%= f.input :duration %>
-  <%= f.button :submit %>
-  <% end %>
-
-<%= link_to 'api', criteria_path, method: 'patch' %>
-<p> <%= @name %> </p>
-
-<% if @urls != nil %>
-<% @urls.each do |movie| %>
-<%= link_to "watch movie on", movie %>
-<% end %>
-<% end %>
+<% if user_signed_in?  %>
+  <%= simple_form_for @criterium, url: criterium_path(@criterium), method: 'patch' do |f| %>
+    <%= f.input :platforms, as: :check_boxes, collection: Criterium::PLATFORMS%>
+    <%= f.input :rating, collection: 1..10, as: :radio_buttons %>
+    <%= f.input :duration %>
+    <%= f.button :submit %>
+    <% end %>
+ <% else %>
+  <%= simple_form_for @criterium, url: criteria_path, method: 'post' do |f| %>
+    <%= f.input :platforms, as: :check_boxes, collection: Criterium::PLATFORMS%>
+    <%= f.input :rating, collection: 1..10, as: :radio_buttons %>
+    <%= f.input :duration %>
+    <%= f.button :submit %>
+    <% end %>
+ <% end  %>
