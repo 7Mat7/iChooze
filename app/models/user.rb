@@ -5,7 +5,9 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable, :trackable
 
   has_many :vues
+  has_many :movies, through: :vues
   has_one :criterium
+
 
   # after_create :default_criterium
 

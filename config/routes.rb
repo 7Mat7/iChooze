@@ -1,13 +1,10 @@
 Rails.application.routes.draw do
-  get 'movies/show'
-  get 'movies/create'
-  get 'movies/index'
   get 'movies/redirect'
   devise_for :users
   root to: 'pages#home'
-  resources :movies, only: [:show, :create]
-  get '/movies/:id/redirect', to:'movies#redirect'
-  get '/users/movies', to: 'movies#index'
+  resources :movies, only: [:show, :create, :index]
+  get '/movies/:id/redirect', to:'movies#redirect', as: 'redirect'
   resources :criteria, only: [:edit, :create, :update]
+  resources :vues, only: [:create]
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end
