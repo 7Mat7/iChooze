@@ -2,7 +2,6 @@ require 'open-uri'
 require 'net/http'
 require 'openssl'
 class CriteriaController < ApplicationController
-
   skip_before_action :authenticate_user!, only: [:create]
 
   def edit

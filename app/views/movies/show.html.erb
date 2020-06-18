@@ -12,10 +12,6 @@
 <p> <%= @movie.duration %> </p>
 <p>Rating : <%= @movie.rating %> </p>
 
-
-
-
-
 <% Criterium::PLATFORMS_FULL_NAME.each do |platform| %>
   <% @movie.urls.find do |link| %>
     <% if link.include?(platform) %>
