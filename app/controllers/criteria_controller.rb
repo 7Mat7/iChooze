@@ -33,6 +33,16 @@ class CriteriaController < ApplicationController
     file = open(url).read
     movies = JSON.parse(file)
 
+    seen_movies = []
+    @current_user.vues.each do |vue|
+      seen_movies << vue.movie[:title_fr]
+    end
+
+    movies_to_parse = movies["items"].reject do |title|
+        seen_movies.include? title["title"]
+      end
+
+    binding.pry
     @movie_duration = []
     movies["items"].each do |movie|
       html_file = open("https://apis.justwatch.com/content/titles/movie/#{movie["id"]}/locale/fr_FR").read
@@ -74,13 +84,13 @@ class CriteriaController < ApplicationController
     #   end
     # end
     # binding.pry
-
+    title_fr = html_doc["title"]
     title = html_doc["original_title"]
-    get_info(title, urls)
+    get_info(title, urls, title_fr)
     redirect_to movie_path(@movie)
   end
 
-  def get_info(movie, links)
+  def get_info(movie, links, title_fr)
     api_key = ENV["TMDB_KEY"]
     url_for_id = URI.encode("https://api.themoviedb.org/3/search/movie?api_key=#{api_key}&language=en-US&query=#{movie}&page=1&include_adult=false")
     html_file_for_id = open(url_for_id).read
@@ -114,7 +124,7 @@ class CriteriaController < ApplicationController
     duration = html_doc_for_info["runtime"]
     date = html_doc_for_info["release_date"]
     urls = links
-
-  @movie = Movie.create(title: title, synopsis: synopsis, date: date, duration: duration, rating: rating, director: director, photo_url: image, cast: cast, urls: urls)
+    title_fr = title_fr
+    @movie = Movie.create(title: title, synopsis: synopsis, date: date, duration: duration, rating: rating, director: director, photo_url: image, cast: cast, urls: urls, title_fr: title_fr)
   end
 end
