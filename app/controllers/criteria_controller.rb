@@ -2,7 +2,6 @@ require 'open-uri'
 require 'net/http'
 require 'openssl'
 class CriteriaController < ApplicationController
-
   skip_before_action :authenticate_user!, only: [:create]
 
   def edit
@@ -12,12 +11,12 @@ class CriteriaController < ApplicationController
   def create
     if current_user.nil?
       session[:search] = params.require(:criterium).permit(:duration, :rating, platforms: [])
-      redirect_to new_user_session_path, notice: 'Merci de vous connectez pour ...'
+      redirect_to new_user_session_path, notice: 'Merci de vous connecter pour ...'
     else
       @criterium = Criterium.new(criteria_params)
       @criterium.user = current_user
       @criterium.save!
-      redirect_to edit_criterium_path(@criterium)
+      update
     end
   end
 
@@ -36,16 +35,13 @@ class CriteriaController < ApplicationController
 
     @movie_duration = []
     movies["items"].each do |movie|
-      html_file = open("https://apis.justwatch.com/content/titles/movie/#{movie["id"]}/locale/en_US").read
+      html_file = open("https://apis.justwatch.com/content/titles/movie/#{movie["id"]}/locale/fr_FR").read
       html_doc = JSON.parse(html_file)
       @movie_duration << { duration: html_doc["runtime"], id: html_doc["id"] }
     end
 
-    @movie_short = []
     @movie_short = @movie_duration.select do |movie|
-      if movie[:duration] < duration
-        @movie_short << { duration: movie[:duration], id: movie[:id] }
-      end
+      movie[:duration] < duration
     end
 
     @choice = @movie_short.sample[:id]
@@ -55,44 +51,49 @@ class CriteriaController < ApplicationController
   private
 
   def criteria_params
-    params.require(:criterium).permit(:platforms, :duration, :rating)
+    params.require(:criterium).permit(:duration, :rating, platforms: [])
   end
 
   def generate_movie(movie)
-    url = "https://apis.justwatch.com/content/titles/movie/#{@choice}/locale/en_US"
+    url = "https://apis.justwatch.com/content/titles/movie/#{movie}/locale/fr_FR"
     html_file = open(url).read
     html_doc = JSON.parse(html_file)
-
-    @urls = []
-
-    binding.pry
+    urls = []
     helpers.translate_platform(current_user.criterium.platforms).each do |b|
       html_doc["offers"].find do |a|
         if a["urls"]["standard_web"] && a["urls"]["standard_web"].include?(b)
-          @urls << a["urls"]["standard_web"]
+          urls << a["urls"]["standard_web"]
         end
       end
     end
 
-    title = html_doc["title"]
-    get_info(title)
+    # tmdb_id = ""
+    # html_doc["external_ids"].find do |a|
+    #   if a["provider"] && a["provider"] = "tmdb"
+    #   tmdb_id = a["external_id"]
+    #   end
+    # end
+    # binding.pry
+
+    title = html_doc["original_title"]
+    get_info(title, urls)
     redirect_to movie_path(@movie)
   end
 
-  def get_info(movie)
+  def get_info(movie, links)
     api_key = ENV["TMDB_KEY"]
-    url_for_id = "https://api.themoviedb.org/3/search/movie?api_key=#{api_key}&language=en-US&query=#{movie}&page=1&include_adult=false"
+    url_for_id = URI.encode("https://api.themoviedb.org/3/search/movie?api_key=#{api_key}&language=en-US&query=#{movie}&page=1&include_adult=false")
     html_file_for_id = open(url_for_id).read
     html_doc_for_id = JSON.parse(html_file_for_id)
     tmdb_id = html_doc_for_id["results"][0]["id"]
 
     image_url_base = "https://image.tmdb.org/t/p/w500"
 
-    url_for_info = "https://api.themoviedb.org/3/movie/#{tmdb_id}?api_key=7bf83a9105f9107994967650371b6126&language=en-US"
+    url_for_info = URI.encode("https://api.themoviedb.org/3/movie/#{tmdb_id}?api_key=#{api_key}&language=en-US")
     html_file_for_info = open(url_for_info).read
     html_doc_for_info = JSON.parse(html_file_for_info)
 
-    url_for_credits = "https://api.themoviedb.org/3/movie/#{tmdb_id}/credits?api_key=7bf83a9105f9107994967650371b6126"
+    url_for_credits = "https://api.themoviedb.org/3/movie/#{tmdb_id}/credits?api_key=#{api_key}"
     html_file_for_credits = open(url_for_credits).read
     html_doc_for_credits = JSON.parse(html_file_for_credits)
 
@@ -112,7 +113,8 @@ class CriteriaController < ApplicationController
     image = image_url_base + html_doc_for_info["poster_path"]
     duration = html_doc_for_info["runtime"]
     date = html_doc_for_info["release_date"]
+    urls = links
 
-  @movie = Movie.create(title: title, synopsis: synopsis, date: date, duration: duration, rating: rating, director: director, photo_url: image, cast: cast)
+  @movie = Movie.create(title: title, synopsis: synopsis, date: date, duration: duration, rating: rating, director: director, photo_url: image, cast: cast, urls: urls)
   end
 end

@@ -19,6 +19,7 @@ module CriteriaHelper
     end
 
     if providers.include?("prv")
+      platform_translated << "amazon"
       platform_translated << "primevideo"
     end
 
