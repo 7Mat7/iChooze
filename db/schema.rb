@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_06_15_140639) do
+ActiveRecord::Schema.define(version: 2020_06_18_161428) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -18,7 +18,7 @@ ActiveRecord::Schema.define(version: 2020_06_15_140639) do
   create_table "criteria", force: :cascade do |t|
     t.integer "duration"
     t.integer "rating"
-    t.string "platforms", default: [], array: true
+    t.string "platforms", default: ["cpd", "dnp", "itu", "nfx", "ocs", "prv"], array: true
     t.bigint "user_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
@@ -30,13 +30,14 @@ ActiveRecord::Schema.define(version: 2020_06_15_140639) do
     t.string "director"
     t.text "synopsis"
     t.string "date"
-    t.string "datetime"
     t.integer "rating"
     t.integer "duration"
-    t.string "cast"
     t.string "photo_url"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.string "cast", default: [], array: true
+    t.string "urls", default: [], array: true
+    t.string "title_fr"
   end
 
   create_table "users", force: :cascade do |t|
@@ -50,7 +51,11 @@ ActiveRecord::Schema.define(version: 2020_06_15_140639) do
     t.string "username"
     t.string "conjoint1"
     t.string "conjoint2"
-    t.string "platforms", default: [], array: true
+    t.integer "sign_in_count", default: 0, null: false
+    t.datetime "current_sign_in_at"
+    t.datetime "last_sign_in_at"
+    t.string "current_sign_in_ip"
+    t.string "last_sign_in_ip"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end

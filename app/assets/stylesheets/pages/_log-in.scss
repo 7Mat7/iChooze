@@ -1,0 +1,78 @@
+.main-container {
+  background-color: #153B50;
+  opacity: 0.8;
+  display: flex;
+  padding-left: 20px;
+  padding-top: 20px;
+  padding-right: 20px;
+  padding-bottom: 20px;
+  width: 50%;
+  margin-left: auto;
+  margin-right: auto;
+  border-radius: 15px;
+  border: 2px solid #16F4D0;
+  box-sizing: border-box;
+  border-radius: 5px;
+  margin-top: 200px;
+  }
+
+.devise-sessions-new{
+  background-image: url(https://images.unsplash.com/photo-1568111561564-08726a1563e1?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=3292&q=80);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: 50% 50%;
+
+}
+
+.devise-sessions-new .navbar{
+  display:none;
+}
+
+
+.devise-sessions-new .simple_form {
+  width:100%;
+}
+
+.devise-sessions-new .form-inputs {
+  width:100%;
+}
+
+.devise-sessions-new .form-control{
+  background-color: #153B50;
+  border:2px solid #16F4D0;
+  border-radius: 5px;
+}
+
+.devise-sessions-new .form-control:focus{
+  background-color: #153B50;
+}
+
+#log {
+  margin-bottom: 25px;
+  color: white;
+
+}
+
+.devise-sessions-new .form-group {
+  color: white;
+}
+
+.devise-sessions-new .form-actions {
+  border:2px solid #16F4D0;
+  width: fit-content;
+  margin: 0 auto;
+  border-radius: 5px;
+}
+
+.devise-sessions-new .form-actions input{
+  color: white;
+}
+
+.devise-sessions-new .ex {
+  display: flex;
+  justify-content: space-between;
+}
+
+.devise-sessions-new .ex a {
+  color: white;
+}

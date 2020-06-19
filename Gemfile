@@ -28,11 +28,13 @@ gem 'flutie'
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.4.2', require: false
 
+gem 'nokogiri', '~> 1.6', '>= 1.6.6.2'
 gem 'devise'
-
+gem 'awesome_print'
 gem 'autoprefixer-rails'
 gem 'font-awesome-sass'
 gem 'simple_form'
+gem "flutie"
 group :development, :test do  gem 'pry-byebug'
   gem 'pry-rails'
   gem 'dotenv-rails'
