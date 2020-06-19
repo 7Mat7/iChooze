@@ -3,6 +3,7 @@
   background-image: asset-url("fondhome2.jpg");
   background-size: cover;
   background: cover;
+  background-repeat: no-repeat;
 }
 
 .pages-home .navbar {
@@ -35,4 +36,14 @@
   font-weight: bold;
 }
 
-
+.form-group {
+  display: flex;
+  margin: 0 auto;
+  max-width: 550px;
+  margin-top: 5vh;
+  position: relative;
+  left: 280px;
+  top: 260px;
+  box-sizing: border-box;
+  color: #16F4D0;
+}
