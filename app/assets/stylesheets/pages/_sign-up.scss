@@ -1,0 +1,89 @@
+.devise-registrations-new .navbar {
+  display: none;
+}
+
+.ctn-sign {
+  background-color: #153B50;
+  opacity: 0.9;
+  display: flex;
+  padding-left: 20px;
+  padding-top: 20px;
+  padding-right: 20px;
+  padding-bottom: 20px;
+  width: 50%;
+  margin-left: auto;
+  margin-right: auto;
+  border-radius: 15px;
+  border: 2px solid #16F4D0;
+  box-sizing: border-box;
+  border-radius: 5px;
+  margin-top: 200px;
+  }
+
+
+
+.devise-registrations-new{
+  background-image: url(https://images.unsplash.com/photo-1568876694728-451bbf694b83?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=60);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: bottom 70px;
+
+}
+
+.ctn-sign .simple_form {
+  width:100%;
+}
+
+.ctn-sign .form-inputs {
+  width:100%;
+}
+
+#sign {
+  color:white;
+}
+
+.ctn-sign .form-control{
+  background-color: #153B50;
+  border:2px solid #16F4D0;
+  border-radius: 5px;
+}
+
+.ctn-sign .form-control:focus{
+  background-color: #153B50;
+}
+
+.devise-registrations-new .form-actions .submit{
+  border:2px solid #16F4D0;
+  width: fit-content;
+  border-radius: 5px;
+  padding-right: 0;
+}
+
+.devise-registrations-new .form-group {
+  color: white;
+}
+
+.devise-registrations-new .form-actions input{
+  color: white;
+}
+
+.form-actions{
+  display: flex;
+    justify-content: space-between;
+}
+
+.devise-registrations-new .form-actions .links {
+  margin-top: 12px;
+}
+
+.links a {
+  color: white;
+}
+
+
+
+
+
+
+
+
