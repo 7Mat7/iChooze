@@ -21,6 +21,18 @@ class VuesController < ApplicationController
     end
   end
 
+  def watch
+    @vue = Vue.new
+    @vue.user = current_user
+    @movie = Movie.find(params[:movie_id])
+    @vue.movie = @movie
+
+    @vue.conjoint1 = true
+    @vue.conjoint2 = true
+
+    redirect_to params[:link]
+  end
+
   def movies_params
     params.require(:movie).permit(:id)
   end
