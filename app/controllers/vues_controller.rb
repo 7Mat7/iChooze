@@ -1,40 +1,27 @@
 class VuesController < ApplicationController
-  def create_member1
+  include SearchList
+  def create
+    providers = current_user.criterium.platforms
+    duration = current_user.criterium.duration
+    rating = current_user.criterium.rating
+    page = 1
+
     @vue = Vue.new
     @vue.user = current_user
-    binding.pry
     @movie = Movie.find(params[:movie_id])
     @vue.movie = @movie
-    @vue.conjoint1 = true
+      binding.pry
+    if params[:vue][:conjoint1]
+      @vue.conjoint1 = true
+    end
+    if params[:vue][:conjoint2]
+      @vue.conjoint1 = true
+    end
     if @vue.save
-      redirect_to movie_path(@movie)
+      search_list(providers, duration, rating, page)
     end
   end
 
-def create_member2
-    @vue = Vue.new
-    @vue.user = current_user
-    binding.pry
-    @movie = Movie.find(params[:movie_id])
-    @vue.movie = @movie
-    @vue.conjoint2 = true
-    if @vue.save
-      redirect_to movie_path(@movie)
-    end
-  end
-
-  def create_members
-    @vue = Vue.new
-    @vue.user = current_user
-    binding.pry
-    @movie = Movie.find(params[:movie_id])
-    @vue.movie = @movie
-    @vue.conjoint1 = true
-    @vue.conjoint2 = true
-    if @vue.save
-      redirect_to movie_path(@movie)
-    end
-  end
   def movies_params
     params.require(:movie).permit(:id)
   end
