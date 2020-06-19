@@ -8,7 +8,7 @@ class MoviesController < ApplicationController
   end
 
   def index
-    @movies = current_user.movies
+    @vues = current_user.vues.where(conjoint1: true).or(current_user.vues.where(conjoint2: true))
   end
 
   def redirect

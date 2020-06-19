@@ -5,7 +5,7 @@ class VuesController < ApplicationController
     duration = current_user.criterium.duration
     rating = current_user.criterium.rating
     page = 1
-
+    
     @vue = Vue.new
     @vue.user = current_user
     @movie = Movie.find(params[:movie_id])
