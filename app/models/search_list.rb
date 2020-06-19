@@ -15,8 +15,10 @@ module SearchList
     end
 
     if movies_to_parse.empty?
+
       page += 1
       search_list(providers, duration, rating, page)
+
     else
       find_movie(movies_to_parse, duration, page)
     end
