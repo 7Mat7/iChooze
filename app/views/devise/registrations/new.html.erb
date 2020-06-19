@@ -1,25 +1,34 @@
-<h2>Sign up</h2>
+<body class="<%= body_class %>">
 
+<div class="ctn-sign">
 <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
   <%= f.error_notification %>
 
   <div class="form-inputs">
+    <h2 id="sign">Sign up for free</h2>
     <%= f.input :email,
                 required: true,
                 autofocus: true,
-                input_html: { autocomplete: "email" }%>
+                input_html: { autocomplete: "email" },
+                placeholder: "Enter your email"%>
     <%= f.input :password,
                 required: true,
                 hint: ("#{@minimum_password_length} characters minimum" if @minimum_password_length),
-                input_html: { autocomplete: "new-password" } %>
+                input_html: { autocomplete: "new-password" },
+                placeholder: "Enter your password" %>
     <%= f.input :password_confirmation,
                 required: true,
-                input_html: { autocomplete: "new-password" } %>
+                input_html: { autocomplete: "new-password" },
+                placeholder: "Please confirm your password"%>
+
   </div>
 
   <div class="form-actions">
+    <div class="submit">
     <%= f.button :submit, "Sign up" %>
   </div>
-<% end %>
+    <div class="links"><%= render "devise/shared/links" %></div>
+  </div>
 
-<%= render "devise/shared/links" %>
+<% end %>
+</div>

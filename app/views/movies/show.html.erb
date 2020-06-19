@@ -1,13 +1,8 @@
 <h1>Movies#show</h1>
 <p>Find me in app/views/movies/show.html.erb</p>
 
-<%= link_to "Conjoint 1 l'a vu", member1_path(movie_id: @movie.id), method: 'post' %> |
-<%= link_to "Conjoint 2 l'a vu", member2_path(movie_id: @movie.id), method: 'post' %> |
-<%= link_to "Les 2 l'ont vu", members_path(movie_id: @movie.id), method: 'post' %>
-
 <h1> <%= @movie.title %> </h1>
 <p>Synopsis : <%= @movie.synopsis %> </p>
-
 <p><strong>Actors</strong> </p>
 <% @movie.cast.each do |actor| %>
 <p>  <%= actor %> </p>
@@ -22,4 +17,23 @@
     <%= link_to "Watch on #{platform}", link, target: "_blank" %>
     <% end %>
   <% end %>
+<% end %>
+
+<%= simple_form_for @vue, url: vue_path, method: 'post' do |f| %>
+    <%= hidden_field_tag(:movie_id, @movie.id) %>
+    <%= f.input :conjoint1, input_html: { checked: true }, as: :hidden %>
+    <%= f.button :submit, "conjoint 1 l'a vu" %>
+<% end %>
+
+<%= simple_form_for @vue, url: vue_path, method: 'post' do |f| %>
+    <%= hidden_field_tag(:movie_id, @movie.id) %>
+    <%= f.input :conjoint2, input_html: { checked: true }, as: :hidden %>
+    <%= f.button :submit, "conjoint 2 l'a vu" %>
+<% end %>
+
+<%= simple_form_for @vue, url: vue_path, method: 'post' do |f| %>
+    <%= hidden_field_tag(:movie_id, @movie.id) %>
+    <%= f.input :conjoint1, input_html: { checked: true }, as: :hidden %>
+    <%= f.input :conjoint2, input_html: { checked: true }, as: :hidden %>
+    <%= f.button :submit, "Les 2 l'ont vu" %>
 <% end %>
