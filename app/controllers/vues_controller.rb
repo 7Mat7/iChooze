@@ -14,7 +14,7 @@ class VuesController < ApplicationController
       @vue.conjoint1 = true
     end
     if params[:vue][:conjoint2]
-      @vue.conjoint1 = true
+      @vue.conjoint2 = true
     end
     if @vue.save
       search_list(providers, duration, rating, page)

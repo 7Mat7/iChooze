@@ -36,7 +36,7 @@ module SearchList
       html_doc = JSON.parse(html_file)
       @movie_duration << { duration: html_doc["runtime"], id: html_doc["id"] }
     end
-    binding.pry
+
     @movie_short = @movie_duration.select do |movie|
       movie[:duration] < duration
     end
