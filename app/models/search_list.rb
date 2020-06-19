@@ -15,13 +15,19 @@ module SearchList
     end
 
     if movies_to_parse.empty?
-      search_list(providers, duration, rating, (page + 1))
+      page += 1
+      search_list(providers, duration, rating, page)
     else
-      find_movie(movies_to_parse, duration)
+      find_movie(movies_to_parse, duration, page)
     end
    end
 
-  def find_movie(movies, duration)
+  def find_movie(movies, duration, page)
+    @criterium = current_user.criterium
+    providers = @criterium.platforms
+    duration = @criterium.duration
+    rating = @criterium.rating.to_f
+
     @movie_duration = []
     movies.each do |movie|
       html_file = open("https://apis.justwatch.com/content/titles/movie/#{movie["id"]}/locale/fr_FR").read
@@ -33,8 +39,13 @@ module SearchList
       movie[:duration] < duration
     end
 
-    @choice = @movie_short.sample[:id]
-    generate_movie(@choice)
+    if @movie_short.empty?
+      page += 1
+      search_list(providers, duration, rating, page)
+    else
+      @choice = @movie_short.sample[:id]
+      generate_movie(@choice)
+    end
   end
 
   def generate_movie(movie)
