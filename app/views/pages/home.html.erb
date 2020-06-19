@@ -11,10 +11,7 @@
   <br><%= link_to 'Join us', movies_path, class: "btn btn-home" %>
 </div>
 
-
-<!-- <h1>Pages#home</h1>
-<p>Find me in app/views/pages/home.html.erb</p>
-
+<div class="container">
 <% if user_signed_in?  %>
   <%= simple_form_for @criterium, url: criterium_path(@criterium), method: 'patch' do |f| %>
     <%= f.input :platforms, as: :check_boxes, collection: Criterium::PLATFORMS%>
@@ -29,5 +26,5 @@
     <%= f.input :duration %>
     <%= f.button :submit %>
     <% end %>
- <% end  %> -->
-
+ <% end  %>
+</div>
