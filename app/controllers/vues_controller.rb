@@ -10,7 +10,6 @@ class VuesController < ApplicationController
     @vue.user = current_user
     @movie = Movie.find(params[:movie_id])
     @vue.movie = @movie
-      binding.pry
     if params[:vue][:conjoint1]
       @vue.conjoint1 = true
     end
