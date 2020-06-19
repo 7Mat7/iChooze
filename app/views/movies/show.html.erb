@@ -2,11 +2,13 @@
 <p>Find me in app/views/movies/show.html.erb</p>
 
 <h1> <%= @movie.title %> </h1>
-<p>Synopsis : <%= @movie.synopsis %> </p>
-<p><strong>Actors</strong> </p>
+<%= image_tag @movie.photo_url, alt: @movie.title %>
+<p> Synopsis : <%= @movie.synopsis %> </p>
+<p> <%= @movie.date %> </p>
+<p> <strong>Actors</strong> </p>
 <% @movie.cast.each do |actor| %>
-<p>  <%= actor %> </p>
-  <% end %>
+  <p> <%= actor %> </p>
+<% end %>
 <p>Director : <%= @movie.director %> </p>
 <p>Duration : <%= @movie.duration %>min </p>
 <p>Rating : <%= @movie.rating %>/10 </p>
@@ -14,6 +16,12 @@
 <% Criterium::PLATFORMS_FULL_NAME.each do |platform| %>
   <% @movie.urls.find do |link| %>
     <% if link.include?(platform) %>
+    <%= simple_form_for @vue, url: vue_path, method: 'post' do |f| %>
+    <%= hidden_field_tag(:movie_id, @movie.id) %>
+    <%= f.input :conjoint1, input_html: { checked: true }, as: :hidden %>
+    <%= f.input :conjoint2, input_html: { checked: true }, as: :hidden %>
+    <%= f.button :submit, "Watch on #{platform}" %>
+<% end %>
     <%= link_to "Watch on #{platform}", link, target: "_blank" %>
     <% end %>
   <% end %>
