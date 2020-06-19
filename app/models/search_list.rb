@@ -15,6 +15,7 @@ module SearchList
     end
 
     if movies_to_parse.empty?
+      binding.pry
       search_list(providers, duration, rating, (page + 1))
     else
       find_movie(movies_to_parse, duration)
@@ -28,7 +29,7 @@ module SearchList
       html_doc = JSON.parse(html_file)
       @movie_duration << { duration: html_doc["runtime"], id: html_doc["id"] }
     end
-
+    binding.pry
     @movie_short = @movie_duration.select do |movie|
       movie[:duration] < duration
     end

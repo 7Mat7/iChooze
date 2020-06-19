@@ -1,22 +1,28 @@
-<h1>Votre Library de couple</h1>
+<h1>Votre Library</h1>
 
-<% conjoint1 = [] %>
-<% conjoint2 = [] %>
-<% couple = [] %>
-
-<% @vues.each do |vue| %>
-  <% if vue.conjoint1 && vue.conjoint2 %>
-  <p> Votre couple a vu : </p>
-    <ul><%=vue.movie.title%> de <%=vue.movie.director%> - <%=vue.movie.date%></ul>
-
-  <% elsif vue.conjoint1 %>
-  <p> Conjoint 1 a vu : </p>
-    <ul><%=vue.movie.title%> de <%=vue.movie.director%> - <%=vue.movie.date%></ul>
-
-  <% elsif vue.conjoint2 %>
-  <p> Conjoint 2 a vu : </p>
-    <ul><%=vue.movie.title%> de <%=vue.movie.director%> - <%=vue.movie.date%></ul>
-
+<p> Votre couple a vu : </p>
+  <% if @couple.present? %>
+  <% @couple.each do |vue| %>
+  <ul>
+    <%=vue.movie.title%> de <%=vue.movie.director%> - <%=vue.movie.date%></ul>
+  </ul>
+    <% end %>
   <% end %>
-<% end %>
 
+<p> Conjoint 1 a vu : </p>
+  <% if @conjoint1.present? %>
+  <% @conjoint1.each do |vue| %>
+  <ul>
+    <%=vue.movie.title%> de <%=vue.movie.director%> - <%=vue.movie.date%></ul>
+  </ul>
+    <% end %>
+  <% end %>
+
+<p> Conjoint 2 a vu : </p>
+  <% if @conjoint2.present? %>
+  <% @conjoint2.each do |vue| %>
+  <ul>
+    <%=vue.movie.title%> de <%=vue.movie.director%> - <%=vue.movie.date%></ul>
+  </ul>
+    <% end %>
+  <% end %>
