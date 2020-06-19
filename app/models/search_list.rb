@@ -19,7 +19,7 @@ module SearchList
     else
       find_movie(movies_to_parse, duration)
     end
-    end
+   end
 
   def find_movie(movies, duration)
     @movie_duration = []
