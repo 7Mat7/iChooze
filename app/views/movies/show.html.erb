@@ -1,8 +1,8 @@
 <h1>Movies#show</h1>
 <p>Find me in app/views/movies/show.html.erb</p>
 
-<%= link_to "conjoint 1 l'a vu", member1_path(movie_id: @movie.id), method: 'post' %>
-<%= link_to "conjoint 2 l'a vu", member2_path(movie_id: @movie.id), method: 'post' %>
+<%= link_to "Conjoint 1 l'a vu", member1_path(movie_id: @movie.id), method: 'post' %> |
+<%= link_to "Conjoint 2 l'a vu", member2_path(movie_id: @movie.id), method: 'post' %> |
 <%= link_to "Les 2 l'ont vu", members_path(movie_id: @movie.id), method: 'post' %>
 
 <h1> <%= @movie.title %> </h1>
@@ -13,13 +13,13 @@
 <p>  <%= actor %> </p>
   <% end %>
 <p>Director : <%= @movie.director %> </p>
-<p> <%= @movie.duration %> </p>
-<p>Rating : <%= @movie.rating %> </p>
+<p>Duration : <%= @movie.duration %>min </p>
+<p>Rating : <%= @movie.rating %>/10 </p>
 
 <% Criterium::PLATFORMS_FULL_NAME.each do |platform| %>
   <% @movie.urls.find do |link| %>
     <% if link.include?(platform) %>
-    <%= link_to "Watch on #{platform}", link %>
-  <% end %>
+    <%= link_to "Watch on #{platform}", link, target: "_blank" %>
+    <% end %>
   <% end %>
 <% end %>

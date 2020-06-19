@@ -1,3 +1,22 @@
-<h1>Movies#index</h1>
-<p>Find me in app/views/movies/index.html.erb</p>
-<%= @movies %>
+<h1>Votre Library de couple</h1>
+
+<% conjoint1 = [] %>
+<% conjoint2 = [] %>
+<% couple = [] %>
+
+<% @vues.each do |vue| %>
+  <% if vue.conjoint1 && vue.conjoint2 %>
+  <p> Votre couple a vu : </p>
+    <ul><%=vue.movie.title%> de <%=vue.movie.director%> - <%=vue.movie.date%></ul>
+
+  <% elsif vue.conjoint1 %>
+  <p> Conjoint 1 a vu : </p>
+    <ul><%=vue.movie.title%> de <%=vue.movie.director%> - <%=vue.movie.date%></ul>
+
+  <% elsif vue.conjoint2 %>
+  <p> Conjoint 2 a vu : </p>
+    <ul><%=vue.movie.title%> de <%=vue.movie.director%> - <%=vue.movie.date%></ul>
+
+  <% end %>
+<% end %>
+

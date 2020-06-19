@@ -42,7 +42,6 @@ class CriteriaController < ApplicationController
         seen_movies.include? title["title"]
       end
 
-    binding.pry
     @movie_duration = []
     movies["items"].each do |movie|
       html_file = open("https://apis.justwatch.com/content/titles/movie/#{movie["id"]}/locale/fr_FR").read

@@ -2,7 +2,6 @@ class VuesController < ApplicationController
   def create_member1
     @vue = Vue.new
     @vue.user = current_user
-    binding.pry
     @movie = Movie.find(params[:movie_id])
     @vue.movie = @movie
     @vue.conjoint1 = true
@@ -14,7 +13,6 @@ class VuesController < ApplicationController
 def create_member2
     @vue = Vue.new
     @vue.user = current_user
-    binding.pry
     @movie = Movie.find(params[:movie_id])
     @vue.movie = @movie
     @vue.conjoint2 = true
@@ -26,7 +24,6 @@ def create_member2
   def create_members
     @vue = Vue.new
     @vue.user = current_user
-    binding.pry
     @movie = Movie.find(params[:movie_id])
     @vue.movie = @movie
     @vue.conjoint1 = true
