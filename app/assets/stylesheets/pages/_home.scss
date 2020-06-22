@@ -32,104 +32,41 @@
   font-weight: bold;
 }
 
+.container2 .simple_form {
+  background-color: rgba(21,59,80,0.6);
+  padding: 20px;
+  padding-top: 0px;
+  border-radius: 5px;
+  border: 2px solid #16F4D0;
+  margin-top: 20px;
+}
+
 .container2 .form-group {
   display: flex;
   margin: 0 auto;
   max-width: 550px;
-  margin-top: 5vh;
+  margin-top: 20px;
   position: relative;
-  left: 280px;
-  top: 260px;
   box-sizing: border-box;
   color: #16F4D0;
 }
 
-input[type="checkbox"] {
-  display: none;
-}
 
-input[type="checkbox"] + label[for="criterium_platforms_netflix"] {
-  background-image: asset-url("netflix-2015-logo.svg") !important;
-  background-size: cover;
-  padding: 5px 15px;
-  color: rgba(0, 0, 0, 0) !important;
-}
-
-input[type="checkbox"]:checked + label[for="criterium_platforms_netflix"] {
-  transform: scale(1.2);
-  border: white, 1px, solid;
-}
-
-
-
-
-input[type="checkbox"] + label[for="criterium_platforms_disneyplus"] {
-  background-image: asset-url("disney.jpg") !important;
-  background-size: cover;
-  padding: 5px 15px;
-  color: rgba(0, 0, 0, 0) !important;
-}
-
-input[type="checkbox"]:checked + label[for="criterium_platforms_disneyplus"] {
-  transform: scale(1.2);
-  border: white, 1px, solid;
-}
-
-
-
-
-input[type="checkbox"] + label[for="criterium_platforms_itunes"] {
-  background-color: black !important;
-  color: white !important;
-  padding: 5px 15px;
-}
-
-input[type="checkbox"]:checked + label[for="criterium_platforms_itunes"] {
-  background-color: white !important;
-  color: black !important;
-}
-
-
-
-
-input[type="checkbox"] + label[for="criterium_platforms_go_ocs"] {
-  background-image: asset-url("ocs.png") !important;
-  background-size: cover;
-  padding: 5px 15px;
-  color: rgba(0, 0, 0, 0) !important;
-}
-
-input[type="checkbox"]:checked + label[for="criterium_platforms_go_ocs"] {
-  transform: scale(1.2);
-  border: white, 1px, solid;
-}
-
-
-
-
-input[type="checkbox"] + label[for="criterium_platforms_amazon"] {
-  background-image: asset-url("prime.jpg") !important;
-  background-size: cover;
-  padding: 10px 15px;
-  color: rgba(0, 0, 0, 0) !important;
-}
-
-input[type="checkbox"]:checked + label[for="criterium_platforms_amazon"] {
-  transform: scale(1.2);
-  border: white, 1px, solid;
-}
-
-
-
-input[type="checkbox"] + label[for="criterium_platforms_canalplus"] {
-  background-color: black;
-  color: white !important;
-  padding: 5px 15px;
-}
-
-input[type="checkbox"]:checked + label[for="criterium_platforms_canalplus"] {
-  background-color: white !important;
-  color: black !important;
+.container2 .btn {
+  display: flex;
+  color: white;
+  border: none;
+  width: auto;
+  height: auto;
+  margin-top: 20px;
+  padding: 10px 40px;
+  outline: none;
+  font-size: 15px;
+  background-color: #153B50;
+  border: 2px solid #16F4D0;
+  border-radius: 5px;
+  text-align: center;
+  margin-left: 66px;
 }
 
 

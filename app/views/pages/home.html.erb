@@ -17,13 +17,11 @@
 <% if user_signed_in?  %>
 
   <div class="container2">
-  <% if user_signed_in?  %>
     <%= simple_form_for @criterium, url: criterium_path(@criterium), method: 'patch' do |f| %>
       <%= f.input :platforms, as: :check_boxes, collection: Criterium::PLATFORMS_FULL_NAME%>
       <%= f.input :rating, collection: [4, 6, 8], as: :radio_buttons %>
       <%= f.input :duration %>
       <%= f.button :submit %>
-      <% end %>
    <% end  %>
   </div>
 <% end %>
