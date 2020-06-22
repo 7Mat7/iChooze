@@ -6,37 +6,19 @@
   <div class="logo">
     <%= image_tag "logoichoose1.png", alt: "alttext" %>
   </div>
+
+<% if user_signed_in? == false %>
   <br><h1>Join the community</h1>
   <br><p>Spend last time choosing more time watching</p>
   <br><%= link_to 'Join us', new_user_registration_path, class: "btn btn-home" %>
 </div>
+<% end %>
 
 <% if user_signed_in?  %>
-  <%= simple_form_for @criterium, url: criterium_path(@criterium), method: 'patch' do |f| %>
-    <%= f.input :platforms, as: :check_boxes, collection: Criterium::PLATFORMS%>
-    <%= f.input :rating, collection: [4, 6, 8], as: :radio_buttons %>
-    <%= f.input :duration %>
-    <%= f.button :submit %>
-    <% end %>
- <% else %>
-  <%= simple_form_for @criterium, url: criteria_path, method: 'post' do |f| %>
-    <%= f.input :platforms, as: :check_boxes, collection: Criterium::PLATFORMS%>
-    <%= f.input :rating, collection: [4, 6, 8], as: :radio_buttons %>
-    <%= f.input :duration %>
-    <%= f.button :submit %>
-    <% end %>
- <% end  %>
-</div>
+
   <div class="container2">
   <% if user_signed_in?  %>
     <%= simple_form_for @criterium, url: criterium_path(@criterium), method: 'patch' do |f| %>
-      <%= f.input :platforms, as: :check_boxes, collection: Criterium::PLATFORMS%>
-      <%= f.input :rating, collection: 1..10, as: :radio_buttons %>
-      <%= f.input :duration %>
-      <%= f.button :submit %>
-      <% end %>
-   <% else %>
-    <%= simple_form_for @criterium, url: criteria_path, method: 'post' do |f| %>
       <%= f.input :platforms, as: :check_boxes, collection: Criterium::PLATFORMS%>
       <%= f.input :rating, collection: 1..10, as: :radio_buttons %>
       <%= f.input :duration %>
