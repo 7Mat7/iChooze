@@ -1,12 +1,25 @@
-<h1>Library</h1>
+<div class="body-index">
+  <div class="title">
+    <h1>Your Library</h1>
+  </div>
 
-<%= link_to "lib #{current_user.conjoint1}", vues_path(conjoint1: true)  %>
-<%= link_to "lib #{current_user.conjoint2}", vues_path(conjoint2: true)  %>
-<%= link_to 'common lib conjoint', vues_path  %>
+  <div class="button-select-class">
+    <div class="button-select">
+      <%= link_to "#{current_user.conjoint1}'s Movies", vues_path(conjoint1: true)  %>
+    </div>
+    <div class="button-select">
+      <%= link_to " #{current_user.conjoint2}'s Movies", vues_path(conjoint2: true)  %>
+    </div>
+    <div class="button-select">
+      <%= link_to 'Your Movies', vues_path  %>
+    </div>
+  </div>
 
-<p> You saw : </p>
-<% @vues.each do |vue| %>
-  <ul>
-    <%=vue.movie.title%> de <%=vue.movie.director%> - <%=vue.movie.date%></ul>
-  </ul>
-<% end %>
+    <div class="image-movie">
+      <% @vues.each do |vue| %>
+        <ul>
+        <%= image_tag vue.movie.photo_url %>
+        </ul>
+        <% end %>
+    </div>
+  </div>

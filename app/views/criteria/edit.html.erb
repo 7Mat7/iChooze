@@ -1,5 +1,4 @@
-<h1>Page with my formulaire</h1>
-<p>I'll have my own form</p>
+<h1>Do you want to change this choices ?</h1>
 
 <%= simple_form_for @criterium, url: criterium_path(@criterium), method: 'patch' do |f| %>
 <%= f.input :platforms, as: :check_boxes, collection: @criterium.platforms%>
