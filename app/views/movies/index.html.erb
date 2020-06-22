@@ -1,28 +1,49 @@
-<h1>Votre Library</h1>
+<div class="body-index">
+  <div class="title">
+    <h1>Votre Library</h1>
+  </div>
 
-<p> Vous avez vu : </p>
-  <% if @couple.present? %>
-  <% @couple.each do |vue| %>
-  <ul>
-    <%=vue.movie.title%> de <%=vue.movie.director%> - <%=vue.movie.date%></ul>
-  </ul>
-    <% end %>
-  <% end %>
+    <button class="accordion"><strong><%= "#{current_user.conjoint1}" %></strong> a prit son pied en regardant...</button>
+    <div class="panel">
+      <div class="image-movie">
+       <% if @conjoint1.present? %>
+        <% @conjoint1.each do |vue| %>
+          <p><%= image_tag vue.movie.photo_url %></p>
+          <% end %>
+        <% end %>
+      </div>
+    </div>
 
-<p> Conjoint 1 a vu : </p>
-  <% if @conjoint1.present? %>
-  <% @conjoint1.each do |vue| %>
-  <ul>
-    <%=vue.movie.title%> de <%=vue.movie.director%> - <%=vue.movie.date%></ul>
-  </ul>
-    <% end %>
-  <% end %>
+    <button class="accordion"><strong><%= "#{current_user.conjoint2}" %></strong> a passé du bon temps devant en contemplant...</button>
+    <div class="panel">
+      <div class="image-movie">
+       <% if @conjoint2.present? %>
+        <% @conjoint2.each do |vue| %>
+          <p><%= image_tag vue.movie.photo_url %></p>
+          <% end %>
+        <% end %>
+      </div>
+    </div>
 
-<p> Conjoint 2 a vu : </p>
-  <% if @conjoint2.present? %>
-  <% @conjoint2.each do |vue| %>
-  <ul>
-    <%=vue.movie.title%> de <%=vue.movie.director%> - <%=vue.movie.date%></ul>
-  </ul>
-    <% end %>
-  <% end %>
+    <button class="accordion"><strong>Vous</strong> vous êtes régalés devant ...</button>
+    <div class="panel">
+      <div class="image-movie">
+       <% if @couple.present? %>
+        <% @couple.each do |vue| %>
+          <p><%= image_tag vue.movie.photo_url %></p>
+          <% end %>
+        <% end %>
+      </div>
+    </div>
+  </div>
+
+<script>
+var acc = document.getElementsByClassName("accordion");
+var i;
+
+for (i = 0; i < acc.length; i++) {
+  acc[i].addEventListener("click", function() {
+    this.classList.toggle("active");
+  });
+}
+</script>
