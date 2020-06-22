@@ -30,13 +30,13 @@
 <%= simple_form_for @vue, url: vue_path, method: 'post' do |f| %>
     <%= hidden_field_tag(:movie_id, @movie.id) %>
     <%= f.input :conjoint1, input_html: { checked: true }, as: :hidden %>
-    <%= f.button :submit, "conjoint 1 l'a vu" %>
+    <%= f.button :submit, "#{current_user.conjoint1} l'a vu" %>
 <% end %>
 
 <%= simple_form_for @vue, url: vue_path, method: 'post' do |f| %>
     <%= hidden_field_tag(:movie_id, @movie.id) %>
     <%= f.input :conjoint2, input_html: { checked: true }, as: :hidden %>
-    <%= f.button :submit, "conjoint 2 l'a vu" %>
+    <%= f.button :submit, "#{current_user.conjoint2} l'a vu" %>
 <% end %>
 
 <%= simple_form_for @vue, url: vue_path, method: 'post' do |f| %>

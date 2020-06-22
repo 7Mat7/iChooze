@@ -1,5 +1,7 @@
 class ApplicationController < ActionController::Base
   before_action :authenticate_user!
+  before_action :configure_permitted_parameters, if: :devise_controller?
+
 
   def after_sign_in_path_for(resource)
     ap "je suis la"
@@ -16,7 +18,9 @@ class ApplicationController < ActionController::Base
     else
       super
     end
+  end
 
-    # end
+  def configure_permitted_parameters
+    devise_parameter_sanitizer.permit(:sign_up, keys: [:conjoint1, :conjoint2])
   end
 end

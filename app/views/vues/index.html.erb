@@ -1,0 +1,12 @@
+<h1>Library</h1>
+
+<%= link_to "lib #{current_user.conjoint1}", vues_path(conjoint1: true)  %>
+<%= link_to "lib #{current_user.conjoint2}", vues_path(conjoint2: true)  %>
+<%= link_to 'common lib conjoint', vues_path  %>
+
+<p> You saw : </p>
+<% @vues.each do |vue| %>
+  <ul>
+    <%=vue.movie.title%> de <%=vue.movie.director%> - <%=vue.movie.date%></ul>
+  </ul>
+<% end %>
