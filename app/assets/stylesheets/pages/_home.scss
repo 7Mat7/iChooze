@@ -32,14 +32,128 @@
   font-weight: bold;
 }
 
+.container2 .simple_form {
+  background-color: rgba(21,59,80,0.6);
+  padding: 20px;
+  padding-top: 0px;
+  border-radius: 5px;
+  border: 2px solid #16F4D0;
+  margin-top: 20px;
+}
+
 .container2 .form-group {
   display: flex;
   margin: 0 auto;
   max-width: 550px;
-  margin-top: 5vh;
+  margin-top: 20px;
   position: relative;
-  left: 280px;
-  top: 260px;
   box-sizing: border-box;
   color: #16F4D0;
+}
+
+
+.container2 .btn {
+  display: flex;
+  color: white;
+  border: none;
+  width: auto;
+  height: auto;
+  margin-top: 20px;
+  padding: 10px 40px;
+  outline: none;
+  font-size: 15px;
+  background-color: #153B50;
+  border: 2px solid #16F4D0;
+  border-radius: 5px;
+  text-align: center;
+  margin-left: 66px;
+}
+
+input[type="checkbox"] {
+  display: none;
+}
+input[type="checkbox"] + label[for="criterium_platforms_netflix"] {
+  background-image: asset-url("netflix1.png") !important;
+  background-size: contain !important;
+  background-repeat: no-repeat;
+  font-size: 0;
+  padding: 20px;
+    filter: grayscale(1);
+
+}
+input[type="checkbox"]:checked + label[for="criterium_platforms_netflix"] {
+transform: scale(1.1);
+  filter: grayscale(0);
+}
+
+
+input[type="checkbox"] + label[for="criterium_platforms_disneyplus"] {
+  background-image: asset-url("disney1.png") !important;
+  background-size: contain !important;
+  background-repeat: no-repeat;
+  font-size: 0;
+  padding: 20px;
+    filter: grayscale(1);
+
+}
+input[type="checkbox"]:checked + label[for="criterium_platforms_disneyplus"] {
+  transform: scale(1.1);
+  filter: grayscale(0);
+}
+
+input[type="checkbox"] + label[for="criterium_platforms_itunes"] {
+  background-image: asset-url("musique1.png") !important;
+  background-size: contain !important;
+  background-repeat: no-repeat;
+  font-size: 0;
+  padding: 20px;
+    filter: grayscale(1);
+
+}
+input[type="checkbox"]:checked + label[for="criterium_platforms_itunes"] {
+  transform: scale(1.1);
+  filter: grayscale(0);
+}
+
+
+input[type="checkbox"] + label[for="criterium_platforms_go_ocs"] {
+  background-image: asset-url("ocs1.png") !important;
+  background-size: contain !important;
+  background-repeat: no-repeat;
+  font-size: 0;
+  padding: 20px;
+    filter: grayscale(1);
+
+}
+input[type="checkbox"]:checked + label[for="criterium_platforms_go_ocs"] {
+  transform: scale(1.1);
+  filter: grayscale(0);
+}
+
+input[type="checkbox"] + label[for="criterium_platforms_primevideo"] {
+  background-image: asset-url("prime1.png") !important;
+  background-size: contain !important;
+  background-repeat: no-repeat;
+  font-size: 0;
+  padding: 20px;
+  filter: grayscale(1);
+}
+input[type="checkbox"]:checked + label[for="criterium_platforms_primevideo"] {
+  transform: scale(1.1);
+  filter: grayscale(0);
+
+}
+
+input[type="checkbox"] + label[for="criterium_platforms_canalplus"] {
+  background-image: asset-url("canal1.png") !important;
+  background-size: contain !important;
+  background-repeat: no-repeat;
+  font-size: 0;
+  padding: 20px;
+    filter: grayscale(1);
+
+}
+input[type="checkbox"]:checked + label[for="criterium_platforms_canalplus"] {
+  transform: scale(1.1);
+  filter: grayscale(0);
 }
