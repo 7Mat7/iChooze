@@ -25,7 +25,7 @@ class CriteriaController < ApplicationController
     @criterium = current_user.criterium
     @criterium.update(criteria_params)
 
-    providers = @criterium.platforms
+    providers = helpers.names_to_acronyms(@criterium.platforms)
     duration = @criterium.duration
     rating = @criterium.rating.to_f
     @page = 1
