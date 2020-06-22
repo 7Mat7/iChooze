@@ -1,31 +1,50 @@
-<h1>Movies#show</h1>
-<p>Find me in app/views/movies/show.html.erb</p>
+<!-- <h1>Movies#show</h1>
+<p>Find me in app/views/movies/show.html.erb</p> -->
 
-<h1> <%= @movie.title %> </h1>
+
+  <div class="test">
 <%= image_tag @movie.photo_url, alt: @movie.title %>
-<p> Synopsis : <%= @movie.synopsis %> </p>
-<p> <%= @movie.date %> </p>
-<p> <strong>Actors</strong> </p>
-<% @movie.cast.each do |actor| %>
-  <p> <%= actor %> </p>
-<% end %>
-<p>Director : <%= @movie.director %> </p>
-<p>Duration : <%= @movie.duration %>min </p>
-<p>Rating : <%= @movie.rating %>/10 </p>
-
-<% Criterium::PLATFORMS_FULL_NAME.each do |platform| %>
-  <% @movie.urls.find do |link| %>
-    <% if link.include?(platform) %>
-      <%= simple_form_for @vue, url: watch_path, method: 'post' do |f| %>
-        <%= hidden_field_tag(:movie_id, @movie.id) %>
-        <%= hidden_field_tag(:link, link) %>
-        <%= f.input :conjoint1, input_html: { checked: true }, as: :hidden %>
-        <%= f.input :conjoint2, input_html: { checked: true }, as: :hidden %>
-        <%= f.button :submit, "Watch on #{platform}" %>
+ <div>
+  <div class="movie-dcp">
+    <h1> <%= @movie.title %> </h1>
+      <p> Synopsis : <%= @movie.synopsis %> </p>
+      <p> <%= @movie.date %> </p>
+      <p> <strong>Actors</strong> </p>
+      <% @movie.cast.each do |actor| %>
+      <p> <%= actor %> </p>
       <% end %>
-    <% end %>
-  <% end %>
-<% end %>
+      <p>Director : <%= @movie.director %> </p>
+      <p>Duration : <%= @movie.duration %>min </p>
+      <p>Rating : <%= @movie.rating %>/10 </p>
+
+     </div>
+    <div class="movie-btn">
+      <% Criterium::PLATFORMS_FULL_NAME.each do |platform| %>
+        <% @movie.urls.find do |link| %>
+          <% if link.include?(platform) %>
+            <%= simple_form_for @vue, url: watch_path, method: 'post' do |f| %>
+              <%= hidden_field_tag(:movie_id, @movie.id) %>
+              <%= hidden_field_tag(:link, link) %>
+              <%= f.input :conjoint1, input_html: { checked: true }, as: :hidden %>
+              <%= f.input :conjoint2, input_html: { checked: true }, as: :hidden %>
+              <%= f.button :submit, "Watch on #{platform}" %>
+            <% end %>
+          <% end %>
+        <% end %>
+      <% end %>
+
+
+      <%= simple_form_for @vue, url: vue_path, method: 'post' do |f| %>
+          <%= hidden_field_tag(:movie_id, @movie.id) %>
+          <%= f.input :conjoint1, input_html: { checked: true }, as: :hidden %>
+          <%= f.button :submit, "conjoint 1 l'a vu" %>
+      <% end %>
+
+      <%= simple_form_for @vue, url: vue_path, method: 'post' do |f| %>
+          <%= hidden_field_tag(:movie_id, @movie.id) %>
+          <%= f.input :conjoint2, input_html: { checked: true }, as: :hidden %>
+          <%= f.button :submit, "conjoint 2 l'a vu" %>
+      <% end %>
 
 <%= simple_form_for @vue, url: vue_path, method: 'post' do |f| %>
     <%= hidden_field_tag(:movie_id, @movie.id) %>
@@ -39,9 +58,13 @@
     <%= f.button :submit, "#{current_user.conjoint2} l'a vu" %>
 <% end %>
 
-<%= simple_form_for @vue, url: vue_path, method: 'post' do |f| %>
-    <%= hidden_field_tag(:movie_id, @movie.id) %>
-    <%= f.input :conjoint1, input_html: { checked: true }, as: :hidden %>
-    <%= f.input :conjoint2, input_html: { checked: true }, as: :hidden %>
-    <%= f.button :submit, "Les 2 l'ont vu" %>
-<% end %>
+
+      <%= simple_form_for @vue, url: vue_path, method: 'post' do |f| %>
+          <%= hidden_field_tag(:movie_id, @movie.id) %>
+          <%= f.input :conjoint1, input_html: { checked: true }, as: :hidden %>
+          <%= f.input :conjoint2, input_html: { checked: true }, as: :hidden %>
+          <%= f.button :submit, "Les 2 l'ont vu" %>
+      <% end %>
+    </div>
+ </div>
+</div>
