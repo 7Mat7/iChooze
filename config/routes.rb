@@ -7,5 +7,6 @@ Rails.application.routes.draw do
   resources :criteria, only: [:edit, :create, :update]
   post '/vues', to: 'vues#create', as: 'vue'
   post '/vues/watch', to: 'vues#watch', as: 'watch'
+  get '/vues', to: 'vues#index'
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end

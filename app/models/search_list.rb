@@ -5,13 +5,12 @@ module SearchList
     file = open(url).read
     movies = JSON.parse(file)
 
-    binding.pry
     seen_movies = []
     if current_user.vues.any?
       current_user.vues.each do |vue|
         seen_movies << vue.movie[:title_fr]
       end
-    movies_to_parse = movies["items"].reject do |title|
+      movies_to_parse = movies["items"].reject do |title|
       seen_movies.include? title["title"]
     end
     else movies_to_parse = movies["items"]
@@ -67,7 +66,6 @@ module SearchList
     title_fr = html_doc["title"]
     title = html_doc["original_title"]
 
-binding.pry
     @movie = Movie.find_by(title_fr: title_fr)
     if @movie.present?
       go_to(@movie)
