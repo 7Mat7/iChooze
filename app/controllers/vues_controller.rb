@@ -41,7 +41,6 @@ class VuesController < ApplicationController
     @vue.conjoint2 = true
 
     @vue.save
-    binding.pry
     redirect_to params[:link]
   end
 
