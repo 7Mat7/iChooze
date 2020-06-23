@@ -27,7 +27,7 @@ gem 'redis', '~> 4.0'
 
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.4.2', require: false
-
+gem 'kaminari'
 gem 'nokogiri', '~> 1.6', '>= 1.6.6.2'
 gem 'devise'
 gem 'awesome_print'
