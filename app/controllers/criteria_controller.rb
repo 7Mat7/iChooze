@@ -25,11 +25,11 @@ class CriteriaController < ApplicationController
     @criterium = current_user.criterium
     @criterium.update(criteria_params)
 
-    providers = helpers.names_to_acronyms(@criterium.platforms)
+    providers = (@criterium.platforms)
     duration = @criterium.duration
     rating = @criterium.rating.to_f
     @page = 1
-
+binding.pry
     search_list(providers, duration, rating, @page)
   end
 
