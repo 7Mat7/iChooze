@@ -15,6 +15,7 @@
   top: 260px;
   box-sizing: border-box;
   color: #16F4D0;
+  text-shadow: 1px 1px 2px black;
 }
 
 .btn-home {
@@ -72,18 +73,25 @@
 input[type="checkbox"] {
   display: none;
 }
+
+input[type="radio"] {
+  display: none;
+}
 input[type="checkbox"] + label[for="criterium_platforms_nfx"] {
   background-image: asset-url("netflix1.png") !important;
   background-size: contain !important;
   background-repeat: no-repeat;
   font-size: 0;
   padding: 20px;
-    filter: grayscale(1);
+  filter: grayscale(1);
+  cursor: pointer;
+  border-radius: 5px;
 
 }
 input[type="checkbox"]:checked + label[for="criterium_platforms_nfx"] {
 transform: scale(1.1);
-  filter: grayscale(0);
+filter: grayscale(0);
+border: solid 1px #16F4D0;
 }
 
 
@@ -93,12 +101,16 @@ input[type="checkbox"] + label[for="criterium_platforms_dnp"] {
   background-repeat: no-repeat;
   font-size: 0;
   padding: 20px;
-    filter: grayscale(1);
+  filter: grayscale(1);
+  cursor: pointer;
+  border-radius: 5px;
 
 }
 input[type="checkbox"]:checked + label[for="criterium_platforms_dnp"] {
   transform: scale(1.1);
   filter: grayscale(0);
+  border: solid 1px #16F4D0;
+
 }
 
 input[type="checkbox"] + label[for="criterium_platforms_itu"] {
@@ -108,11 +120,15 @@ input[type="checkbox"] + label[for="criterium_platforms_itu"] {
   font-size: 0;
   padding: 20px;
     filter: grayscale(1);
+    cursor: pointer;
+    border-radius: 5px;
 
 }
 input[type="checkbox"]:checked + label[for="criterium_platforms_itu"] {
   transform: scale(1.1);
   filter: grayscale(0);
+  border: solid 1px #16F4D0;
+
 }
 
 
@@ -123,11 +139,15 @@ input[type="checkbox"] + label[for="criterium_platforms_ocs"] {
   font-size: 0;
   padding: 20px;
     filter: grayscale(1);
+    cursor: pointer;
+    border-radius: 5px;
 
 }
 input[type="checkbox"]:checked + label[for="criterium_platforms_ocs"] {
   transform: scale(1.1);
   filter: grayscale(0);
+  border: solid 1px #16F4D0;
+
 }
 
 input[type="checkbox"] + label[for="criterium_platforms_prv"] {
@@ -137,10 +157,14 @@ input[type="checkbox"] + label[for="criterium_platforms_prv"] {
   font-size: 0;
   padding: 20px;
   filter: grayscale(1);
+  cursor: pointer;
+  border-radius: 5px;
 }
 input[type="checkbox"]:checked + label[for="criterium_platforms_prv"] {
   transform: scale(1.1);
   filter: grayscale(0);
+  border: solid 1px #16F4D0;
+
 
 }
 
@@ -151,9 +175,98 @@ input[type="checkbox"] + label[for="criterium_platforms_cpd"] {
   font-size: 0;
   padding: 20px;
     filter: grayscale(1);
+    cursor: pointer;
+    border-radius: 5px;
 
 }
 input[type="checkbox"]:checked + label[for="criterium_platforms_cpd"] {
   transform: scale(1.1);
   filter: grayscale(0);
+  border: solid 1px #16F4D0;
+}
+
+input[type="radio"] + label[for="criterium_rating_4"] {
+  background-image: asset-url("navet.png") !important;
+  background-size: contain !important;
+  background-repeat: no-repeat;
+  font-size: 0;
+  padding: 20px;
+  filter: grayscale(1);
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+input[type="radio"]:checked + label[for="criterium_rating_4"] {
+  transform: scale(1.1);
+  filter: grayscale(0);
+  border: solid 1px #16F4D0;
+}
+
+input[type="radio"] + label[for="criterium_rating_6"] {
+  background-image: asset-url("popcorn.png") !important;
+  background-size: contain !important;
+  background-repeat: no-repeat;
+  font-size: 0;
+  padding: 20px;
+  filter: grayscale(1);
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+input[type="radio"]:checked + label[for="criterium_rating_6"] {
+  transform: scale(1.1);
+  filter: grayscale(0);
+  border: solid 1px #16F4D0;
+}
+
+input[type="radio"] + label[for="criterium_rating_8"] {
+  background-image: asset-url("cerises.png") !important;
+  background-size: contain !important;
+  background-repeat: no-repeat;
+  font-size: 0;
+  padding: 20px;
+  filter: grayscale(1);
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+input[type="radio"]:checked + label[for="criterium_rating_8"] {
+  transform: scale(1.1);
+  filter: grayscale(0);
+  border: solid 1px #16F4D0;
+}
+
+
+.label {
+  display: block;
+  text-align: center;
+  margin-top: 8px;
+}
+
+.input {
+  margin-right: 50%;
+  margin-top: 8px;
+  width: 100%;
+  justify-content: space-around;
+}
+
+.col-form-label {
+  display: none;
+}
+
+.criterium_platforms {
+  justify-content: space-around;
+  margin-right: 32px !important;
+}
+
+.criterium_rating {
+  justify-content: space-around;
+}
+
+.criterium_duration {
+  justify-content: space-around;
+}
+
+.form-check {
+  padding-left: 0;
 }

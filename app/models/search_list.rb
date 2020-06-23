@@ -34,7 +34,15 @@ module SearchList
     movies.each do |movie|
       html_file = open("https://apis.justwatch.com/content/titles/movie/#{movie["id"]}/locale/fr_FR").read
       html_doc = JSON.parse(html_file)
-      @movie_duration << { duration: html_doc["runtime"], id: html_doc["id"] }
+
+      imdb_score = ""
+      html_doc["scoring"].each do |score|
+        if score["provider_type"] == "imdb:score"
+          imdb_score = score["value"].to_f
+        end
+      end
+
+      @movie_duration << { duration: html_doc["runtime"], id: html_doc["id"], imdb_score: imdb_score }
     end
 
     @movie_short = @movie_duration.select do |movie|
@@ -45,12 +53,13 @@ module SearchList
       page += 1
       search_list(providers, duration, rating, page)
     else
-      @choice = @movie_short.sample[:id]
-      generate_movie(@choice)
+      choice = @movie_short.sample[:id]
+      imdb_score = @movie_short.sample[:imdb_score]
+      generate_movie(choice, imdb_score)
     end
   end
 
-  def generate_movie(movie)
+  def generate_movie(movie, imdb_score)
     url = "https://apis.justwatch.com/content/titles/movie/#{movie}/locale/fr_FR"
     html_file = open(url).read
     html_doc = JSON.parse(html_file)
@@ -70,7 +79,7 @@ module SearchList
     if @movie.present?
       go_to(@movie)
     else
-      get_info(title, urls, title_fr)
+      get_info(title, urls, title_fr, imdb_score)
       go_to(@movie)
     end
   end
@@ -79,7 +88,7 @@ module SearchList
     redirect_to movie_path(movie)
   end
 
-  def get_info(movie, links, title_fr)
+  def get_info(movie, links, title_fr, imdb_score)
     api_key = ENV["TMDB_KEY"]
     url_for_id = URI.encode("https://api.themoviedb.org/3/search/movie?api_key=#{api_key}&language=en-US&query=#{movie}&page=1&include_adult=false")
     html_file_for_id = open(url_for_id).read
@@ -107,13 +116,12 @@ module SearchList
       cast << a["name"]
     end
     title = movie
-    rating = html_doc_for_info["vote_average"]
     synopsis = html_doc_for_info["overview"]
     image = image_url_base + html_doc_for_info["poster_path"]
     duration = html_doc_for_info["runtime"]
     date = html_doc_for_info["release_date"]
     urls = links
     title_fr = title_fr
-    @movie = Movie.create(title: title, synopsis: synopsis, date: date, duration: duration, rating: rating, director: director, photo_url: image, cast: cast, urls: urls, title_fr: title_fr)
+    @movie = Movie.create(title: title, synopsis: synopsis, date: date, duration: duration, rating: imdb_score, director: director, photo_url: image, cast: cast, urls: urls, title_fr: title_fr)
   end
 end

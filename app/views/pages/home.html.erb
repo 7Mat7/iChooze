@@ -9,7 +9,7 @@
 
 <% if user_signed_in? == false %>
   <br><h1>Join the community</h1>
-  <br><p>Spend last time choosing more time watching</p>
+  <br><p>Spend less time choosing, more time watching !</p>
   <br><%= link_to 'Join us', new_user_registration_path, class: "btn btn-home" %>
 </div>
 <% end %>
@@ -18,10 +18,21 @@
 
   <div class="container2">
     <%= simple_form_for @criterium, url: criterium_path(@criterium), method: 'patch' do |f| %>
-      <%= f.input :platforms, as: :check_boxes, collection: Criterium::PLATFORMS%>
-      <%= f.input :rating, collection: [4, 6, 8], as: :radio_buttons %>
-      <%= f.input :duration, collection: [105, 150, 500], as: :radio_buttons %>
+    <div class="form">
+      <%= f.label :platforms, class: 'label' %>
+      <div class="input">
+        <%= f.input :platforms, as: :check_boxes, collection: Criterium::PLATFORMS, label: "", class: 'input'%>
+      </div>
+      <%= f.label :rating, class: 'label' %>
+      <div class="input">
+        <%= f.input :rating, collection: [4, 6, 8], as: :radio_buttons,label: "", class: 'input' %>
+      </div>
+      <%= f.label :duration, class: 'label' %>
+      <div class="input">
+        <%= f.input :duration, collection: [105, 150, 500], as: :radio_buttons, label: "", class: 'input' %>
+      </div>
       <%= f.button :submit %>
+      </div>
    <% end  %>
   </div>
 <% end %>
