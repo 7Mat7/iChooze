@@ -29,7 +29,6 @@ class CriteriaController < ApplicationController
     duration = @criterium.duration
     rating = @criterium.rating.to_f
     @page = 1
-binding.pry
     search_list(providers, duration, rating, @page)
   end
 

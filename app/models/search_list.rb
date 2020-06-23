@@ -56,7 +56,6 @@ module SearchList
       choice = @movie_short.sample[:id]
       imdb_score = @movie_short.sample[:imdb_score]
       generate_movie(choice, imdb_score)
-    binding.pry
     end
   end
 
@@ -90,7 +89,6 @@ module SearchList
   end
 
   def get_info(movie, links, title_fr, imdb_score)
-    binding.pry
     api_key = ENV["TMDB_KEY"]
     url_for_id = URI.encode("https://api.themoviedb.org/3/search/movie?api_key=#{api_key}&language=en-US&query=#{movie}&page=1&include_adult=false")
     html_file_for_id = open(url_for_id).read
@@ -118,7 +116,6 @@ module SearchList
       cast << a["name"]
     end
     title = movie
-    binding.pry
     synopsis = html_doc_for_info["overview"]
     image = image_url_base + html_doc_for_info["poster_path"]
     duration = html_doc_for_info["runtime"]
