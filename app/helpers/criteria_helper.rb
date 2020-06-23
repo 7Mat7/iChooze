@@ -29,34 +29,4 @@ module CriteriaHelper
 
     return platform_translated
   end
-
-  def names_to_acronyms(providers)
-    names_to_acronyms = []
-
-    if providers.include?("netflix")
-      names_to_acronyms << "nfx"
-    end
-
-    if providers.include?("disneyplus")
-      names_to_acronyms << "dnp"
-    end
-
-    if providers.include?("itunes")
-      names_to_acronyms << "itu"
-    end
-
-    if providers.include?("go.ocs")
-      names_to_acronyms << "ocs"
-    end
-
-    if providers.include?("primevideo")
-      names_to_acronyms << "prv"
-    end
-
-    if providers.include?("canalplus")
-      names_to_acronyms << "cpd"
-    end
-
-    return names_to_acronyms
-  end
 end
