@@ -1,3 +1,22 @@
+.r2d2 {
+    -webkit-animation: mover 4s infinite  alternate;
+    animation: mover 4s infinite  alternate;
+}
+@-webkit-keyframes mover {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(-400px); }
+}
+@keyframes mover {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(-400px); }
+}
+
+.r2d2 {
+  position: absolute;
+  top: 46px;
+  left: 800px;
+}
+
 .main-container {
   background-color: #153B50;
   opacity: 0.9;
@@ -13,7 +32,7 @@
   border: 2px solid #16F4D0;
   box-sizing: border-box;
   border-radius: 5px;
-  margin-top: 200px;
+  margin-top: 220px;
   }
 
 .devise-sessions-new{
