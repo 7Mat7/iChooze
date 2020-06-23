@@ -72,7 +72,7 @@
 input[type="checkbox"] {
   display: none;
 }
-input[type="checkbox"] + label[for="criterium_platforms_netflix"] {
+input[type="checkbox"] + label[for="criterium_platforms_nfx"] {
   background-image: asset-url("netflix1.png") !important;
   background-size: contain !important;
   background-repeat: no-repeat;
@@ -81,13 +81,13 @@ input[type="checkbox"] + label[for="criterium_platforms_netflix"] {
     filter: grayscale(1);
 
 }
-input[type="checkbox"]:checked + label[for="criterium_platforms_netflix"] {
+input[type="checkbox"]:checked + label[for="criterium_platforms_nfx"] {
 transform: scale(1.1);
   filter: grayscale(0);
 }
 
 
-input[type="checkbox"] + label[for="criterium_platforms_disneyplus"] {
+input[type="checkbox"] + label[for="criterium_platforms_dnp"] {
   background-image: asset-url("disney1.png") !important;
   background-size: contain !important;
   background-repeat: no-repeat;
@@ -96,12 +96,12 @@ input[type="checkbox"] + label[for="criterium_platforms_disneyplus"] {
     filter: grayscale(1);
 
 }
-input[type="checkbox"]:checked + label[for="criterium_platforms_disneyplus"] {
+input[type="checkbox"]:checked + label[for="criterium_platforms_dnp"] {
   transform: scale(1.1);
   filter: grayscale(0);
 }
 
-input[type="checkbox"] + label[for="criterium_platforms_itunes"] {
+input[type="checkbox"] + label[for="criterium_platforms_itu"] {
   background-image: asset-url("musique1.png") !important;
   background-size: contain !important;
   background-repeat: no-repeat;
@@ -110,13 +110,13 @@ input[type="checkbox"] + label[for="criterium_platforms_itunes"] {
     filter: grayscale(1);
 
 }
-input[type="checkbox"]:checked + label[for="criterium_platforms_itunes"] {
+input[type="checkbox"]:checked + label[for="criterium_platforms_itu"] {
   transform: scale(1.1);
   filter: grayscale(0);
 }
 
 
-input[type="checkbox"] + label[for="criterium_platforms_go_ocs"] {
+input[type="checkbox"] + label[for="criterium_platforms_ocs"] {
   background-image: asset-url("ocs1.png") !important;
   background-size: contain !important;
   background-repeat: no-repeat;
@@ -125,12 +125,12 @@ input[type="checkbox"] + label[for="criterium_platforms_go_ocs"] {
     filter: grayscale(1);
 
 }
-input[type="checkbox"]:checked + label[for="criterium_platforms_go_ocs"] {
+input[type="checkbox"]:checked + label[for="criterium_platforms_ocs"] {
   transform: scale(1.1);
   filter: grayscale(0);
 }
 
-input[type="checkbox"] + label[for="criterium_platforms_primevideo"] {
+input[type="checkbox"] + label[for="criterium_platforms_prv"] {
   background-image: asset-url("prime1.png") !important;
   background-size: contain !important;
   background-repeat: no-repeat;
@@ -138,13 +138,13 @@ input[type="checkbox"] + label[for="criterium_platforms_primevideo"] {
   padding: 20px;
   filter: grayscale(1);
 }
-input[type="checkbox"]:checked + label[for="criterium_platforms_primevideo"] {
+input[type="checkbox"]:checked + label[for="criterium_platforms_prv"] {
   transform: scale(1.1);
   filter: grayscale(0);
 
 }
 
-input[type="checkbox"] + label[for="criterium_platforms_canalplus"] {
+input[type="checkbox"] + label[for="criterium_platforms_cpd"] {
   background-image: asset-url("canal1.png") !important;
   background-size: contain !important;
   background-repeat: no-repeat;
@@ -153,7 +153,7 @@ input[type="checkbox"] + label[for="criterium_platforms_canalplus"] {
     filter: grayscale(1);
 
 }
-input[type="checkbox"]:checked + label[for="criterium_platforms_canalplus"] {
+input[type="checkbox"]:checked + label[for="criterium_platforms_cpd"] {
   transform: scale(1.1);
   filter: grayscale(0);
 }
