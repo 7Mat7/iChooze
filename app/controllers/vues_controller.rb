@@ -1,5 +1,6 @@
 class VuesController < ApplicationController
   include SearchList
+
   def index
     if params[:conjoint1].present?
       @vues = current_user.vues.where(conjoint1: true)

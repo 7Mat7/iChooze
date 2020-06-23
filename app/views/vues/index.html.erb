@@ -15,11 +15,24 @@
     </div>
   </div>
 
-    <div class="image-movie">
-      <% @vues.each do |vue| %>
-        <ul>
-        <%= image_tag vue.movie.photo_url %>
-        </ul>
-        <% end %>
-    </div>
+  <div class="infos-movie">
+    <% @vues.each do |vue| %>
+      <div class="flip-card">
+        <div class="flip-card-inner">
+          <div class="flip-card-front">
+            <%= image_tag vue.movie.photo_url %>
+          </div>
+          <div class="flip-card-back">
+            <div id="<%= vue.id %>" class="vue_id">
+              <ul class="ul-title"><%= vue.movie.title %></ul>
+              <ul class="ul-synopsis"><%= vue.movie.synopsis[0, 300] %>...</ul>
+              <ul class="redirect-to"><%= link_to "See more", movie_path(vue.movie.id)%></ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    <% end %>
   </div>
+</div>
+
+
