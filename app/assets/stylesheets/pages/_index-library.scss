@@ -7,10 +7,9 @@
 
 .title h1 {
   padding-top: 32px;
-  color: white;
-  font-size: 64px;
-  text-shadow: 2px 2px #16F4D0;
-  font-weight: bold;
+  color: #16F4D0;
+  text-shadow: 1px 1px 2px black;
+  font-size: 36px;
   text-align: center;
   padding-bottom: 32px;
 }
@@ -25,11 +24,10 @@
 .button-select a {
   text-decoration: none;
   border-radius: 5px;
+  background-color: #153B50;
   border: 2px solid #16F4D0;
   padding: 8px;
-  font-weight: bold;
   color: #16F4D0;
-  font-size: 24px;
 }
 
 .button-select a:hover {
@@ -73,9 +71,9 @@
 
 .ul-title {
   color: #16F4D0;
-  font-weight: bold;
-  font-size: 32px;
+  font-size: 36px;
   text-align: center;
+  text-shadow: 1px 1px 2px black;
 }
 
 .ul-synospis {
@@ -101,8 +99,8 @@
 .redirect-to a {
   text-decoration: none;
   color: #16F4D0;
-  font-weight: bold;
   font-size: 24px;
+  text-shadow: 1px 1px 2px black;
 }
 
 .redirect-to a:hover {
