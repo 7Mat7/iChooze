@@ -8,7 +8,7 @@
     <br><p>Spend less time choosing, more time watching !</p>
     <br><%= link_to 'Join us', new_user_registration_path, class: "btn btn-home" %>
   <% end %>
-  
+
   <div class="container2">
     <%= simple_form_for @criterium, url: criterium_path(@criterium), method: 'patch' do |f| %>
     <div class="form">
@@ -66,7 +66,6 @@
         </div>
       <%= f.button :submit %>
       </div>
-   <% end  %>
+   <% end %>
   </div>
-<% end %>
 </div>
