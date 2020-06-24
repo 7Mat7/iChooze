@@ -1,0 +1,88 @@
+
+input[type="radio"] {
+  display: none;
+}
+
+input[type="radio"] + label[for="criterium_rating_4"] {
+  background-size: contain !important;
+  background-repeat: no-repeat;
+  filter: grayscale(1);
+  cursor: pointer;
+  position: relative;
+}
+
+input[type="radio"]:checked + label[for="criterium_rating_4"] {
+  transform: scale(1.1);
+  filter: grayscale(0);
+  border: solid 1px #16F4D0;
+  border-radius: 5px;
+}
+
+input[type="radio"]:hover + label[for="criterium_rating_4"] {
+  filter: grayscale(0);
+  border: none;
+}
+
+.home-logo {
+  border-radius: 5px;
+}
+
+.navet {
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  opacity: 0;
+  transition: opacity ease 0.5s;
+  width: 100%;
+  transform: translateX(50%);
+}
+
+.any {
+  height: 100%;
+  transform: translateX(-50%);
+  cursor: pointer;
+}
+
+.navet:hover {
+  opacity: 1;
+}
+
+input[type="radio"] + label[for="criterium_rating_6"] {
+  background-repeat: no-repeat;
+  filter: grayscale(1);
+  cursor: pointer;
+}
+
+input[type="radio"]:checked + label[for="criterium_rating_6"] {
+  transform: scale(1.1);
+  filter: grayscale(0);
+  border: solid 1px #16F4D0;
+  border-radius: 5px;
+}
+
+input[type="radio"]:hover + label[for="criterium_rating_6"] {
+  filter: grayscale(0);
+  border: none;
+}
+
+
+input[type="radio"] + label[for="criterium_rating_8"] {
+  background-size: contain !important;
+  background-repeat: no-repeat;
+  font-size: 0;
+  filter: grayscale(1);
+  cursor: pointer;
+}
+
+input[type="radio"]:checked + label[for="criterium_rating_8"] {
+  filter: grayscale(0);
+  border: solid 1px #16F4D0;
+  border-radius: 5px;
+  transform: scale(1.1);
+}
+
+input[type="radio"]:hover + label[for="criterium_rating_8"] {
+  filter: grayscale(0);
+  border: none;
+}
