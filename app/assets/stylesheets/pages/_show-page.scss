@@ -85,7 +85,6 @@ margin-bottom: 0;
   justify-content: space-evenly;
 }
 
-
 input[type="submit"]:nth-child(4){
   color: white;
   background-color: #153B50;
@@ -109,6 +108,10 @@ input[type="submit"]:nth-child(5){
   background: linear-gradient(90deg, rgba(0,0,0,0.15) 0%, rgba(21,59,80,0.9486169467787114) 0%);
 }
 
+.rating {
+  margin-bottom: 2rem;
+  }
+
 @media (max-width: 1400px) {
   body {
     padding: 0 20px;
@@ -118,13 +121,12 @@ input[type="submit"]:nth-child(5){
   }
 }
 
-@media (max-width: 1020px){
+@media (max-width: 1020px) {
   .movie-ctn{
     width: 100%;
     display:block;
   }
-  .movie-ctn #img{
-
+  .movie-ctn #img {
     display: flex;
     justify-content: center;
   }
