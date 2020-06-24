@@ -81,6 +81,10 @@
   display: none;
 }
 
+#canvas {
+  position: absolute;
+  top: 0;
+}
 .criterium_platforms {
   justify-content: space-around;
   margin-right: 32px !important;
