@@ -64,6 +64,7 @@
   background-color: #153B50;
   border:2px solid #16F4D0;
   border-radius: 5px;
+  color: white;
 }
 
 .ctn-sign .form-control:focus{
@@ -77,13 +78,14 @@
   padding-right: 0;
 }
 
-
 .devise-registrations-new #user_email{
   color: white;
 }
+
 .devise-registrations-new #user_password_confirmation{
   color: white;
 }
+
 .devise-registrations-new .form-group {
   color: white;
 }
@@ -105,10 +107,10 @@
   color: white;
 }
 
+.form-inputs input::placeholder {
+  color: #8baece;
+}
 
-
-
-
-
-
-
+.text-muted {
+  color: #8baece !important;
+}

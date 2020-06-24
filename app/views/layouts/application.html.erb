@@ -6,7 +6,7 @@
     <%= csp_meta_tag %>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-
+    <%= favicon_link_tag %>
     <meta name="description" content="<%= meta_description %>">
 
     <!-- Facebook Open Graph data -->
@@ -30,9 +30,13 @@
 
   </head>
 
-  <body style="<%= content_for(:body_style) %>">
+  <body class="<%= body_class %>" style="<%= content_for(:body_style) %>">
     <%= render 'shared/navbar' %>
     <%= render 'shared/flashes' %>
-    <%= yield %>
+    <main>
+      <%= yield %>
+    </main>
+
+    <%= render 'shared/footer' %>
   </body>
 </html>
