@@ -1,0 +1,58 @@
+input[type="radio"] + label[for="criterium_duration_500"] {
+  background-size: contain !important;
+  background-repeat: no-repeat;
+  filter: grayscale(1);
+  position: relative;
+}
+
+input[type="radio"]:checked + label[for="criterium_duration_500"] {
+  transform: scale(1.1);
+  filter: grayscale(0);
+  border: solid 1px #16F4D0;
+  border-radius: 5px;
+}
+
+input[type="radio"]:hover + label[for="criterium_duration_500"] {
+  filter: grayscale(0);
+  border: none;
+}
+
+input[type="radio"] + label[for="criterium_duration_150"] {
+  background-size: contain !important;
+  background-repeat: no-repeat;
+  font-size: 0;
+  filter: grayscale(1);
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+input[type="radio"]:checked + label[for="criterium_duration_150"] {
+  transform: scale(1.1);
+  filter: grayscale(0);
+  border: solid 1px #16F4D0;
+}
+
+input[type="radio"]:hover + label[for="criterium_duration_150"] {
+  filter: grayscale(0);
+  border: none;
+}
+
+input[type="radio"] + label[for="criterium_duration_105"] {
+  background-size: contain !important;
+  background-repeat: no-repeat;
+  font-size: 0;
+  filter: grayscale(1);
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+input[type="radio"]:checked + label[for="criterium_duration_105"] {
+  transform: scale(1.1);
+  filter: grayscale(0);
+  border: solid 1px #16F4D0;
+}
+
+input[type="radio"]:hover + label[for="criterium_duration_105"] {
+  filter: grayscale(0);
+  border: none;
+}

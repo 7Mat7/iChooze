@@ -29,8 +29,13 @@
   color:white;
 }
 
+.movie-dcp p {
+margin-bottom: 0;
+}
+
 #actor{
   display: flex;
+  margin-bottom: 1rem;
 }
 
 #img {
@@ -84,5 +89,13 @@ input[type="submit"]:nth-child(5){
   background-color: #153B50;
   border: 2px solid #16F4D0;
   border-radius: 5px;
+}
+
+.date {
+  font-size: 24px;
+}
+
+.desc {
+  margin-bottom: 1rem;
 }
 
