@@ -46,6 +46,10 @@ margin-bottom: 0;
   height: 100%;
   }
 
+.desc {
+  margin-bottom: 1rem;
+}
+
 .movie-btn {
   display: flex;
   flex-wrap: wrap;
@@ -100,9 +104,7 @@ input[type="submit"]:nth-child(5){
   font-size: 24px;
 }
 
-.desc {
-  margin-bottom: 1rem;
-}
+
 .movies-show .footer{
   background: linear-gradient(90deg, rgba(0,0,0,0.15) 0%, rgba(21,59,80,0.9486169467787114) 0%);
 }
