@@ -7,6 +7,33 @@
 
     <div class="sans-interet">
 
+
+  <div class="movie-dcp">
+    <h1> <%= @movie.title %> </h1>
+      <p> Synopsis : <%= @movie.synopsis %> </p>
+      <p> <%= @movie.date.first(4) %> </p>
+      <p> <strong>Actors</strong> </p>
+      <div id="actor">
+        <% @movie.cast.each do |actor| %>
+          <p> <%= actor %> </p>
+        <% end %>
+      </div>
+      <p>Director : <%= @movie.director %> </p>
+      <p>Duration : <%= @movie.duration %>min </p>
+      <p>IMDB score :</p>
+      <div class="rating">
+
+      <div style="height: 30px;">
+
+        <% 10.times do |i| %>
+          <% value = (i + 1) < @movie.rating ? 10 : 0 %>
+          <% value = (@movie.rating * 10 % 10).to_i if @movie.rating.truncate == i  %>
+          <%= render 'shared/svg/star', value: value %>
+        <% end %>
+
+      </div>
+
+
       <div class="movie-dcp">
         <h1> <%= @movie.title %> </h1>
         <h4> (<%= @movie.date.first(4) %>) </h4>
@@ -25,6 +52,7 @@
         <div class="desc">
           <p><strong> Director : </strong><%= @movie.director %> </p>
         </div>
+
 
         <p><strong> Duration :</strong> <%= @movie.duration %>min </p>
         <p><strong> IMDB score :</strong> <%= @movie.rating %>/10 </p>
