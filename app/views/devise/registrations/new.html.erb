@@ -1,6 +1,4 @@
-<body class="<%= body_class %>">
-
-  <div class="deadpool">
+<div class="deadpool">
     <%= image_tag "deadpool2.png", alt: "alttext" %>
   </div>
 
@@ -37,9 +35,10 @@
                 required: true,
                 input_html: { autocomplete: "new-password" },
                 placeholder: "Please confirm your password"%>
-    <%= f.input :conjoint1, placeholder: "Harry" %>
-    <%= f.input :conjoint2, placeholder: "Sally" %>
-
+    <%= f.input :conjoint1,
+                placeholder: "Harry" %>
+    <%= f.input :conjoint2,
+                placeholder: "Sally" %>
   </div>
 
   <div class="form-actions">

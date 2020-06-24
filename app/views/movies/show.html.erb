@@ -7,14 +7,18 @@
 
     <div class="sans-interet">
       <div class="movie-dcp">
-        <h1> <%= @movie.title %> </h1>
-        <h4> (<%= @movie.date.first(4) %>) </h4>
 
+        <div class="movie-title">
+          <h1> <%= @movie.title %> </h1>
+          <h4> (<%= @movie.date.first(4) %>) </h4>
+        </div>
+        
         <div class="desc">
           <p><strong> Synopsis :</strong> <%= @movie.synopsis %> </p>
         </div>
 
         <p> <strong>Actors : </strong> </p>
+
         <div id="actor">
           <% actor_list = "" %>
           <% @movie.cast.each do |actor| %>
@@ -36,16 +40,16 @@
         </div>
 
         <div class="rating">
+          <div style="height: 30px;">
+              <% 10.times do |i| %>
+                <% value = (i + 1) < @movie.rating ? 10 : 0 %>
+                <% value = (@movie.rating * 10 % 10).to_i if @movie.rating.truncate == i  %>
+                <%= render 'shared/svg/star', value: value %>
+              <% end %>
+          </div>
+        </div>
 
-        <div style="height: 30px;">
-
-        <% 10.times do |i| %>
-          <% value = (i + 1) < @movie.rating ? 10 : 0 %>
-          <% value = (@movie.rating * 10 % 10).to_i if @movie.rating.truncate == i  %>
-          <%= render 'shared/svg/star', value: value %>
-        <% end %>
       </div>
-    </div>
 
     <div class="movie-btn">
       <% Criterium::PLATFORMS_FULL_NAME.each do |platform| %>
@@ -61,6 +65,7 @@
           <% end %>
         <% end %>
       <% end %>
+     </div>
     </div>
 
     <p id="barre"></p>
@@ -110,4 +115,3 @@
     </div>
   </div>
 </div>
-
