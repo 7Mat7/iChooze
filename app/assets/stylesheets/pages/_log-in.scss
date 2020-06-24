@@ -33,6 +33,18 @@
   box-sizing: border-box;
   border-radius: 5px;
   margin-top: 220px;
+  --x: 423px;
+  --y: 265px;
+  position: relative;
+  appearance: none;
+  padding: 1em 2em;
+  color: white;
+  cursor: pointer;
+  outline: none;
+  border-radius: 5px;
+
+  border: 2px solid transparent;
+  background: linear-gradient(#153B50, #153B50) padding-box, radial-gradient(farthest-corner at var(--x) var(--y), #153B50, #16F4D0) border-box;
   }
 
 .devise-sessions-new{

@@ -5,6 +5,19 @@
   </div>
 
 <div class="ctn-sign">
+
+  <script>
+  document.querySelector('.ctn-sign').onmousemove = (e) => {
+
+  const x = e.pageX - e.target.offsetLeft
+  const y = e.pageY - e.target.offsetTop
+
+  e.target.style.setProperty('--x', `${ x }px`)
+  e.target.style.setProperty('--y', `${ y }px`)
+
+}
+</script>
+
 <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
   <%= f.error_notification %>
 
