@@ -7,12 +7,11 @@
 
     <div class="sans-interet">
       <div class="movie-dcp">
-
         <div class="movie-title">
           <h1> <%= @movie.title %> </h1>
           <h4> (<%= @movie.date.first(4) %>) </h4>
         </div>
-        
+
         <div class="desc">
           <p><strong> Synopsis :</strong> <%= @movie.synopsis %> </p>
         </div>
@@ -66,7 +65,6 @@
         <% end %>
       <% end %>
      </div>
-    </div>
 
     <p id="barre"></p>
 
@@ -113,5 +111,5 @@
         <%= f.button :submit, "Both have seen it" %>
       <% end %>
     </div>
+    </div>
   </div>
-</div>
