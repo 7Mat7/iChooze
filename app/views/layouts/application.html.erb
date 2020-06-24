@@ -30,9 +30,13 @@
 
   </head>
 
-  <body style="<%= content_for(:body_style) %>">
+  <body class="<%= body_class %>" style="<%= content_for(:body_style) %>">
     <%= render 'shared/navbar' %>
     <%= render 'shared/flashes' %>
-    <%= yield %>
+    <main>
+      <%= yield %>
+    </main>
+
+    <%= render 'shared/footer' %>
   </body>
 </html>

@@ -1,8 +1,9 @@
 .body-index {
-  background-image: linear-gradient(rgba(0,0,0,0.6),rgba(0,0,0,0.6)), asset-url('mars-attack.jpg');
+  background-image: linear-gradient(rgba(0,0,0,0.6),rgba(0,0,0,0.6)), image-url('mars-attack.jpg');
   background-size: cover;
   background-attachment: fixed;
   min-height: calc(100vh - 56px);
+  padding-bottom: 16px;
 }
 
 .title h1 {
@@ -24,19 +25,12 @@
 .button-select a {
   text-decoration: none;
   border-radius: 5px;
-  background-color: #153B50;
   border: 2px solid #16F4D0;
-  padding: 8px;
-  color: #16F4D0;
-}
-
-.button-select a:hover {
-  text-decoration: none;
-  border-radius: 5px;
-  border: 2px solid white;
-  padding: 8px;
-  font-weight: bold;
+  padding: 10px 40px;
   color: white;
+  background-color: #163B50;
+  font-size: 15px;
+  text-align: center;
 }
 
 .infos-movie {
