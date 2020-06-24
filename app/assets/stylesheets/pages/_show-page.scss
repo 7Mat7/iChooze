@@ -61,6 +61,7 @@ margin-bottom: 0;
 .movie-ctn{
   margin: 0 auto;
   margin-top: 30px;
+  margin-bottom: 50px;
   width : 70%;
   min-height: 80vh;
   display: flex;
@@ -101,6 +102,9 @@ input[type="submit"]:nth-child(5){
 
 .desc {
   margin-bottom: 1rem;
+}
+.movies-show .footer{
+  background: linear-gradient(90deg, rgba(0,0,0,0.15) 0%, rgba(21,59,80,0.9486169467787114) 0%);
 }
 
 @media (max-width: 1400px) {
