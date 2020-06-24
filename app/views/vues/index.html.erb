@@ -25,7 +25,7 @@
           <div class="flip-card-back">
             <div id="<%= vue.id %>" class="vue_id">
               <ul class="ul-title"><%= vue.movie.title %></ul>
-              <ul class="ul-synopsis"><%= vue.movie.synopsis[0, 300] %>...</ul>
+              <ul class="ul-synopsis"><%= vue.movie.synopsis[0, 200] %>...</ul>
               <ul class="redirect-to"><%= link_to "See more", movie_path(vue.movie.id)%></ul>
             </div>
           </div>
