@@ -4,17 +4,17 @@
 }
 @-webkit-keyframes mover {
     0% { transform: translateX(0); }
-    100% { transform: translateX(-400px); }
+    100% { transform: translateX(-450px); }
 }
 @keyframes mover {
     0% { transform: translateX(0); }
-    100% { transform: translateX(-400px); }
+    100% { transform: translateX(-450px); }
 }
 
 .r2d2 {
   position: absolute;
   top: 46px;
-  left: 800px;
+  left: 880px;
 }
 
 .main-container {
@@ -36,10 +36,10 @@
   }
 
 .devise-sessions-new{
-  background-image: url(https://images.unsplash.com/photo-1568111561564-08726a1563e1?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=3292&q=80);
+  background-image: url(https://images.unsplash.com/photo-1539321908154-04927596764d?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1655&q=80);
   background-repeat: no-repeat;
   background-size: cover;
-  background-position: 50% 50%;
+  background-position: bottom 70px;
 
 }
 
