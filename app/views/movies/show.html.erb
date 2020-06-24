@@ -25,19 +25,19 @@
      </div>
 
     <div class="movie-btn">
-      <% Criterium::PLATFORMS_FULL_NAME.each do |platform| %>
-        <% @movie.urls.find do |link| %>
-          <% if link.include?(platform) %>
-            <%= simple_form_for @vue, url: watch_path, method: 'post' do |f| %>
-              <%= hidden_field_tag(:movie_id, @movie.id) %>
-              <%= hidden_field_tag(:link, link) %>
-              <%= f.input :conjoint1, input_html: { checked: true }, as: :hidden %>
-              <%= f.input :conjoint2, input_html: { checked: true }, as: :hidden %>
-              <%= f.button :submit, "Watch on #{platform}" %>
+        <% Criterium::PLATFORMS_FULL_NAME.each do |platform| %>
+          <% @movie.urls.find do |link| %>
+            <% if link.include?(platform) %>
+              <%= simple_form_for @vue, url: watch_path, method: 'post' do |f| %>
+                <%= hidden_field_tag(:movie_id, @movie.id) %>
+                <%= hidden_field_tag(:link, link) %>
+                <%= f.input :conjoint1, input_html: { checked: true }, as: :hidden %>
+                <%= f.input :conjoint2, input_html: { checked: true }, as: :hidden %>
+                <%= f.button :submit, "Watch on #{platform}" %>
+              <% end %>
             <% end %>
           <% end %>
         <% end %>
-      <% end %>
     </div>
 
     <p id="barre"></p>
