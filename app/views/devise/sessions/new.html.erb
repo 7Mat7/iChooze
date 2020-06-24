@@ -6,6 +6,18 @@
 
 <div class="main-container">
 
+<script>
+  document.querySelector('.main-container').onmousemove = (e) => {
+
+  const x = e.pageX - e.target.offsetLeft
+  const y = e.pageY - e.target.offsetTop
+
+  e.target.style.setProperty('--x', `${ x }px`)
+  e.target.style.setProperty('--y', `${ y }px`)
+
+}
+</script>
+
 <%= simple_form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
   <div class="form-inputs">
     <h2 id="log">Log in</h2>
