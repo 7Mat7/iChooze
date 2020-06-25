@@ -77,9 +77,11 @@ module SearchList
 
     @movie = Movie.find_by(title_fr: title_fr)
     if @movie.present?
+      sleep(3) if request.referer == root_url
       go_to(@movie)
     else
       get_info(title, urls, title_fr, imdb_score)
+      sleep(3) if request.referer == root_url
       go_to(@movie)
     end
   end
