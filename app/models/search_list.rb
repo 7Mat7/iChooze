@@ -1,7 +1,7 @@
 module SearchList
   def search_list(providers, duration, rating, page)
     search_rating = "%7B\"imdb:score\":%7B\"min_scoring_value\":#{rating}%7D%7D"
-    url = URI("https://apis.justwatch.com/content/titles/fr_FR/popular?body=%7B%22age_certifications%22:[],%22content_types%22:[%22movie%22],%22genres%22:[],%22languages%22:null,%22min_price%22:null,%22matching_offers_only%22:null,%22max_price%22:null,%22monetization_types%22:[],%22presentation_types%22:[],%22providers%22:#{providers},%22release_year_from%22:null,%22release_year_until%22:null,%22scoring_filter_types%22:#{search_rating},%22timeline_type%22:null,%22sort_by%22:null,%22sort_asc%22:null,%22page%22:#{page},%22page_size%22:1%7D")
+    url = URI("https://apis.justwatch.com/content/titles/fr_FR/popular?body=%7B%22age_certifications%22:[],%22content_types%22:[%22movie%22],%22genres%22:[],%22languages%22:null,%22min_price%22:null,%22matching_offers_only%22:null,%22max_price%22:null,%22monetization_types%22:[],%22presentation_types%22:[],%22providers%22:#{providers},%22release_year_from%22:null,%22release_year_until%22:null,%22scoring_filter_types%22:#{search_rating},%22timeline_type%22:null,%22sort_by%22:null,%22sort_asc%22:null,%22page%22:#{page},%22page_size%22:30%7D")
     file = open(url).read
     movies = JSON.parse(file)
 
@@ -77,11 +77,11 @@ module SearchList
 
     @movie = Movie.find_by(title_fr: title_fr)
     if @movie.present?
-      sleep(3) if request.referer == root_url
+      sleep(2) if request.referer == root_url
       go_to(@movie)
     else
       get_info(title, urls, title_fr, imdb_score)
-      sleep(3) if request.referer == root_url
+      sleep(2) if request.referer == root_url
       go_to(@movie)
     end
   end
