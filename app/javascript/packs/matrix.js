@@ -1,5 +1,6 @@
 const btn = document.querySelector(".btn-matrix")
 
+if (btn) {
 btn.addEventListener("click", (e) => {
   canvas.classList.remove("d-none");
   canvas.classList.remove("d-none");
@@ -83,3 +84,4 @@ var canvas = document.getElementById( 'canvas' ),
     }
 
   update();
+}
