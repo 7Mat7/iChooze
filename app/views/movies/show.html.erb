@@ -16,9 +16,9 @@
           <p><strong> Synopsis :</strong> <%= @movie.synopsis %> </p>
         </div>
 
-        <p> <strong>Actors : </strong> </p>
-
+        <p> <strong>Actors :</strong> </p>
         <div id="actor">
+
           <% actor_list = "" %>
           <% @movie.cast.each do |actor| %>
             <% actor_list << "#{actor}," + " " %>
@@ -34,11 +34,13 @@
           <p><strong> Duration :</strong> <%= @movie.duration %>min </p>
         </div>
 
-        <div class="desc">
-          <p><strong> IMDB score :</strong></p>
+        <div class="desc_logo">
+          <div class="logoimdb">
+            <p><%= image_tag "logoimbd.png", alt: "alttext" %> <strong>Rating :</strong> <%= @movie.rating %></p>
+          </div>
         </div>
 
-        <div class="rating">
+        <!-- <div class="rating">
           <div style="height: 30px;">
               <% 10.times do |i| %>
                 <% value = (i + 1) < @movie.rating ? 10 : 0 %>
@@ -46,7 +48,7 @@
                 <%= render 'shared/svg/star', value: value %>
               <% end %>
           </div>
-        </div>
+        </div> -->
 
       </div>
 
