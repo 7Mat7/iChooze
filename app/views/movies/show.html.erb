@@ -1,8 +1,10 @@
 <% content_for(:body_style) { "background-image: linear-gradient(rgba(255,255,255,0.4),rgba(255,255,255,0.4)), url(#{@movie.photo_url}); background-size: cover; background-position: 50% 25%;"} %>
 
   <div class="movie-ctn">
+    <div class="responsive">
+          <%= image_tag @movie.photo_url, alt: @movie.title %>
+    </div>
 
-    <%= image_tag @movie.photo_url, alt: @movie.title %>
     <div class="sans-interet">
       <div class="movie-dcp">
         <div class="movie-title">
