@@ -1,4 +1,4 @@
-const btn = document.querySelector(".btn")
+const btn = document.querySelector(".btn-matrix")
 
 btn.addEventListener("click", (e) => {
   canvas.classList.remove("d-none");
@@ -45,7 +45,7 @@ var canvas = document.getElementById( 'canvas' ),
       ctx2.font = fontSize+"px san-serif";
       ctx2.fillText(this.value,this.x,this.y);
 
-        ctx.fillStyle = "#0F0";
+        ctx.fillStyle = "#163B50";
         ctx.font = fontSize+"px san-serif";
         ctx.fillText(this.value,this.x,this.y);
 
