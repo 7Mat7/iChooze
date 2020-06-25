@@ -1,10 +1,8 @@
 <% content_for(:body_style) { "background-image: linear-gradient(rgba(255,255,255,0.4),rgba(255,255,255,0.4)), url(#{@movie.photo_url}); background-size: cover; background-position: 50% 25%;"} %>
 
   <div class="movie-ctn">
-    <div id="img">
-      <%= image_tag @movie.photo_url, alt: @movie.title %>
-    </div>
 
+    <%= image_tag @movie.photo_url, alt: @movie.title %>
     <div class="sans-interet">
       <div class="movie-dcp">
         <div class="movie-title">
@@ -16,17 +14,16 @@
           <p><strong> Synopsis :</strong> <%= @movie.synopsis %> </p>
         </div>
 
-        <p> <strong>Actors :</strong> </p>
-        <div id="actor">
-
-          <% actor_list = "" %>
-          <% @movie.cast.each do |actor| %>
-            <% actor_list << "#{actor}," + " " %>
-          <% end %>
-          <%= actor_list[0...-2] %>
+        <div class="desc">
+          <p> <strong>Actors :</strong>  <% actor_list = "" %>
+            <% @movie.cast.each do |actor| %>
+              <% actor_list << "#{actor}," + " " %>
+            <% end %>
+            <%= actor_list[0...-2] %>
+          </p>
         </div>
 
-        <div class="desc">
+         <div class="desc">
           <p><strong> Director : </strong><%= @movie.director %> </p>
         </div>
 
@@ -113,5 +110,5 @@
         <%= f.button :submit, "Both have seen it" %>
       <% end %>
     </div>
-    </div>
   </div>
+</div>

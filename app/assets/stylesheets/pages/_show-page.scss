@@ -43,25 +43,9 @@ margin-bottom: 0;
 }
 
 
-#img {
-  height: 100%;
-  }
 
 .desc {
   margin-bottom: 1rem;
-}
-
-.desc_logo {
-  margin-bottom: 1rem;
-}
-
-.logoimdb {
-  width: 50%;
-  height: 50%;
-}
-
-.logoimdb img {
-  width: 19%;
 }
 
 .movie-btn {
@@ -81,13 +65,24 @@ margin-bottom: 0;
   margin-top: 30px;
   margin-bottom: 50px;
   width : 70%;
-  min-height: 80vh;
+  max-height: 80vh;
   display: flex;
   background: linear-gradient(90deg, rgba(0,0,0,0.15) 0%, rgba(21,59,80,0.9486169467787114) 0%);
   border: 2px solid #16F4D0;
   border-radius: 5px;
 }
 
+.movie-ctn img {
+  object-fit: cover;
+}
+
+.logoimdb {
+  height: 50%;
+  width: 50%;
+}
+.logoimdb img {
+  width: 19%;
+}
 #barre {
   border-bottom:  1px solid #16F4D0;
   margin-left: 20px;
@@ -122,9 +117,6 @@ input[type="submit"]:nth-child(5){
   background: linear-gradient(90deg, rgba(0,0,0,0.15) 0%, rgba(21,59,80,0.9486169467787114) 0%);
 }
 
-.rating {
-  margin-bottom: 2rem;
-  }
 
 @media (max-width: 1400px) {
   body {
