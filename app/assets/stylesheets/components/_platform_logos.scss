@@ -14,7 +14,6 @@ input[type="checkbox"] + label[for="criterium_platforms_nfx"] {
 }
 
 input[type="checkbox"]:checked + label[for="criterium_platforms_nfx"] {
-transform: scale(1.1);
 filter: grayscale(0);
 border: solid 1px #16F4D0;
 }
@@ -31,7 +30,6 @@ input[type="checkbox"] + label[for="criterium_platforms_dnp"] {
 }
 
 input[type="checkbox"]:checked + label[for="criterium_platforms_dnp"] {
-  transform: scale(1.1);
   filter: grayscale(0);
   border: solid 1px #16F4D0;
 }
@@ -48,7 +46,6 @@ input[type="checkbox"] + label[for="criterium_platforms_itu"] {
 }
 
 input[type="checkbox"]:checked + label[for="criterium_platforms_itu"] {
-  transform: scale(1.1);
   filter: grayscale(0);
   border: solid 1px #16F4D0;
 }
@@ -82,7 +79,6 @@ input[type="checkbox"] + label[for="criterium_platforms_prv"] {
 }
 
 input[type="checkbox"]:checked + label[for="criterium_platforms_prv"] {
-  transform: scale(1.1);
   filter: grayscale(0);
   border: solid 1px #16F4D0;
 }
@@ -99,7 +95,6 @@ input[type="checkbox"] + label[for="criterium_platforms_cpd"] {
 }
 
 input[type="checkbox"]:checked + label[for="criterium_platforms_cpd"] {
-  transform: scale(1.1);
   filter: grayscale(0);
   border: solid 1px #16F4D0;
 }

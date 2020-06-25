@@ -12,7 +12,6 @@ input[type="radio"] + label[for="criterium_rating_4"] {
 }
 
 input[type="radio"]:checked + label[for="criterium_rating_4"] {
-  transform: scale(1.1);
   filter: grayscale(0);
   border: solid 1px #16F4D0;
   border-radius: 5px;
@@ -55,7 +54,6 @@ input[type="radio"] + label[for="criterium_rating_6"] {
 }
 
 input[type="radio"]:checked + label[for="criterium_rating_6"] {
-  transform: scale(1.1);
   filter: grayscale(0);
   border: solid 1px #16F4D0;
   border-radius: 5px;
@@ -79,7 +77,6 @@ input[type="radio"]:checked + label[for="criterium_rating_8"] {
   filter: grayscale(0);
   border: solid 1px #16F4D0;
   border-radius: 5px;
-  transform: scale(1.1);
 }
 
 input[type="radio"]:hover + label[for="criterium_rating_8"] {

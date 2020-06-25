@@ -9,7 +9,7 @@
 .container {
   margin: 0 auto;
   max-width: 550px;
-  margin-top: 14vh;
+  margin-top: 9vh;
   position: relative;
   left: 280px;
   box-sizing: border-box;
@@ -49,7 +49,7 @@
 .container2 .simple_form {
   background-color: rgba(21,59,80,0.6);
   padding: 20px;
-  padding-top: 0px;
+  padding-top: 12px;
   border-radius: 5px;
   border: 2px solid #16F4D0;
   margin-top: 20px;
@@ -57,9 +57,8 @@
 
 .container2 .form-group {
   display: flex;
-  margin: 0 auto;
   max-width: 550px;
-  margin-top: 20px;
+  margin-bottom: 40px;
   position: relative;
   box-sizing: border-box;
   color: #16F4D0;
@@ -68,7 +67,6 @@
 .container2 .btn {
   color: white;
   border: none;
-  margin-top: 20px;
   padding: 10px 40px;
   outline: none;
   font-size: 15px;
@@ -81,6 +79,7 @@
   display: block;
   text-align: center;
   margin-top: 8px;
+  font-size: 16px;
 }
 
 .input {
@@ -96,7 +95,6 @@
 
 .criterium_platforms {
   justify-content: space-around;
-  margin-right: 32px !important;
 }
 
 .criterium_rating {
@@ -109,6 +107,7 @@
 
 .form-check {
   padding-left: 0;
+  border: 1px solid transparent;
 }
 
 #canvas {
@@ -124,4 +123,9 @@
 }
 .pages-home .footer{
   background-color: rgba(21, 59, 80, 0.6);
+}
+
+.any {
+  border: 2px solid #16F4D0;
+  border-radius: 5px;
 }
