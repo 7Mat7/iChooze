@@ -21,7 +21,7 @@
 var c = document.getElementById('canvas1');
 var ctx = c.getContext('2d');
 var btn = document.getElementsByClassName('btn-home')[0];
-console.log(btn.getBoundingClientRect());
+
 const btnPosition = btn.getBoundingClientRect();
 const start = {
   x: btnPosition.x + btnPosition.width / 2,
@@ -29,8 +29,8 @@ const start = {
 }
 // c.width = btn.offsetWidth;
 // c.height = btn.offsetHeight;
-c.width = window.screen.width;
-c.height = window.screen.height;
+c.width = window.innerWidth;
+c.height = window.innerHeight;
 
 var mouseX = c.width / 2;
 var mouseY = c.height / 2;
@@ -38,7 +38,7 @@ var txtPosition = 0;
 
 var particles = [];
 
-btn.addEventListener('mouseup', function(e){
+btn.addEventListener('mouseover', function(e){
     mouseX = e.clientX;
     mouseY = e.clientY;
 
