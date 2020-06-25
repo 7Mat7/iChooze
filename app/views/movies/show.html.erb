@@ -7,7 +7,9 @@
       <div class="movie-dcp">
         <div class="movie-title">
           <h1> <%= @movie.title %> </h1>
-          <h4> (<%= @movie.date.first(4) %>) </h4>
+          <div class="desc">
+            <h4> (<%= @movie.date.first(4) %>) </h4>
+          </div>
         </div>
 
         <div class="desc">
@@ -36,17 +38,6 @@
             <p><%= image_tag "logoimbd.png", alt: "alttext" %> <strong>Rating :</strong> <%= @movie.rating %></p>
           </div>
         </div>
-
-        <!-- <div class="rating">
-          <div style="height: 30px;">
-              <% 10.times do |i| %>
-                <% value = (i + 1) < @movie.rating ? 10 : 0 %>
-                <% value = (@movie.rating * 10 % 10).to_i if @movie.rating.truncate == i  %>
-                <%= render 'shared/svg/star', value: value %>
-              <% end %>
-          </div>
-        </div> -->
-
       </div>
 
     <div class="movie-btn">
@@ -58,7 +49,7 @@
               <%= hidden_field_tag(:link, link) %>
               <%= f.input :conjoint1, input_html: { checked: true }, as: :hidden %>
               <%= f.input :conjoint2, input_html: { checked: true }, as: :hidden %>
-              <%= f.button :submit, "Watch on #{platform}", formtarget: "_blank" %>
+              <%= f.button :submit, "Watch on #{platform}" %>
             <% end %>
           <% end %>
         <% end %>
