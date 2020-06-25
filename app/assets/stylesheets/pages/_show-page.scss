@@ -42,7 +42,9 @@ margin-bottom: 0;
   margin-bottom: 1rem;
 }
 
-
+.responsive img {
+  height:100%;
+}
 
 .desc {
   margin-bottom: 1rem;
@@ -130,10 +132,14 @@ input[type="submit"]:nth-child(5){
 @media (max-width: 1020px) {
   .movie-ctn{
     width: 100%;
+    min-height: 100vh;
     display:block;
+    overflow-y: scroll;
   }
-  .movie-ctn #img {
-    display: flex;
+  .movie-ctn img {
     justify-content: center;
+  }
+  .responsive {
+    text-align: center;
   }
 }
