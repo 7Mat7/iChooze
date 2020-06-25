@@ -5,13 +5,13 @@
 
   <div class="button-select-class">
     <div class="button-select">
-      <%= link_to "#{current_user.conjoint1}'s Movies", vues_path(conjoint1: true)  %>
+      <%= link_to "#{current_user.conjoint1}'s Movies", vues_path(conjoint1: true), class: "#{'active' if params[:conjoint1]}"  %>
     </div>
     <div class="button-select">
-      <%= link_to " #{current_user.conjoint2}'s Movies", vues_path(conjoint2: true)  %>
+      <%= link_to " #{current_user.conjoint2}'s Movies", vues_path(conjoint2: true), class: "#{'active' if params[:conjoint2]}" %>
     </div>
     <div class="button-select">
-      <%= link_to 'Your Movies', vues_path  %>
+      <%= link_to 'Your Movies', vues_path, class: "#{'active' if !(params[:conjoint2] || params[:conjoint1])}"  %>
     </div>
   </div>
 
@@ -34,5 +34,7 @@
     <% end %>
   </div>
 </div>
+
+
 
 
