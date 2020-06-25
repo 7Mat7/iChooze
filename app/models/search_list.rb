@@ -35,14 +35,7 @@ module SearchList
       html_file = open("https://apis.justwatch.com/content/titles/movie/#{movie["id"]}/locale/fr_FR").read
       html_doc = JSON.parse(html_file)
 
-      imdb_score = ""
-      html_doc["scoring"].each do |score|
-        if score["provider_type"] == "imdb:score"
-          imdb_score = score["value"].to_f
-        end
-      end
-
-      @movie_duration << { duration: html_doc["runtime"], id: html_doc["id"], imdb_score: imdb_score }
+      @movie_duration << { duration: html_doc["runtime"], id: html_doc["id"] }
     end
 
     @movie_short = @movie_duration.select do |movie|
@@ -54,7 +47,14 @@ module SearchList
       search_list(providers, duration, rating, page)
     else
       choice = @movie_short.sample[:id]
-      imdb_score = @movie_short.sample[:imdb_score]
+      html_file = open("https://apis.justwatch.com/content/titles/movie/#{choice}/locale/fr_FR").read
+      html_doc = JSON.parse(html_file)
+      imdb_score = ""
+      html_doc["scoring"].each do |a|
+        if a["provider_type"] == "imdb:score"
+          imdb_score = a["value"].to_f
+        end
+      end
       generate_movie(choice, imdb_score)
     end
   end
