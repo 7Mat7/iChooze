@@ -6,6 +6,19 @@
   background-repeat: no-repeat;
 }
 
+.unauthenticated .container {
+  position: relative;
+  top: 100px;
+}
+
+.pages-home.unauthenticated .logo {
+  text-align: left;
+}
+
+.pages-home .logo {
+  text-align: center;
+}
+
 .container {
   margin: 0 auto;
   max-width: 550px;
