@@ -15,10 +15,10 @@
   <%= link_to 'Join us', new_user_registration_path, class: "btn btn-home" %>
 </div>
 <% end %>
-<canvas id="canvas"></canvas>
+<canvas id="canvas1"></canvas>
 
 <script>
-var c = document.getElementById('canvas');
+var c = document.getElementById('canvas1');
 var ctx = c.getContext('2d');
 var btn = document.getElementsByClassName('btn-home')[0];
 console.log(btn.getBoundingClientRect());
@@ -52,7 +52,7 @@ setTimeout(function(){
 draw();
 
 function draw(){
-    ctx.clearRect(0, 0, canvas.width, canvas.height);
+    ctx.clearRect(0, 0, canvas1.width, canvas1.height);
     drawBg();
     incParticles();
     drawParticles();
@@ -134,68 +134,70 @@ function ranVel(){
 }
 </script>
 
-
-
 <% if user_signed_in?  %>
 
   <div class="container2">
-    <%= simple_form_for @criterium, url: criterium_path(@criterium), method: 'patch' do |f| %>
-    <div class="form">
-      <%= f.label :platforms, class: 'label', label: "Your streaming platforms" %>
-      <div class="input">
-        <%= f.input :platforms, as: :check_boxes, collection: Criterium::PLATFORMS, label: "", class: 'input'%>
-      </div>
+      <%= simple_form_for @criterium, url: criterium_path(@criterium), method: 'patch' do |f| %>
+        <div class="form">
+          <%= f.label :platforms, class: 'label', label: "Your streaming platforms" %>
+          <div class="input">
+            <%= f.input :platforms, as: :check_boxes, collection: Criterium::PLATFORMS, label: "", class: 'input'%>
+          </div>
 
-      <%= f.label :rating, class: 'label', label: "You're in the mood for ..."  %>
-      <div class="input">
-        <div class="form-group radio_buttons optional criterium_rating form-group-valid">
-          <input type="hidden" name="criterium[rating]" value="">
-          <div class="form-check">
-            <input class="form-check-input is-valid radio_buttons optional" type="radio" value="4" name="criterium[rating]" id="criterium_rating_4">
-            <label class="form-check-label collection_radio_buttons" for="criterium_rating_4"><%= image_tag "navet.png", alt: "alttext", class:"home-logo" %>
-              <div class="navet"><%= image_tag "any2.png", alt: "alttext", class:"any" %></div>
-            </label>
-          </div>
-          <div class="form-check"><input class="form-check-input is-valid radio_buttons optional" type="radio" value="6" checked="checked" name="criterium[rating]" id="criterium_rating_6">
-            <label class="form-check-label collection_radio_buttons" for="criterium_rating_6"><%= image_tag "popcorn.png", alt: "alttext", class:"home-logo" %>
-              <div class="navet"><%= image_tag "blockbuster2.png", alt: "alttext", class:"any" %></div>
-            </label>
-          </div>
-          <div class="form-check"><input class="form-check-input is-valid radio_buttons optional" type="radio" value="8" name="criterium[rating]" id="criterium_rating_8">
-            <label class="form-check-label collection_radio_buttons" for="criterium_rating_8"><%= image_tag "cerises.png", alt: "alttext", class:"home-logo" %>
-              <div class="navet"><%= image_tag "only2.png", alt: "alttext", class:"any" %></div>
-            </label>
-          </div>
-        </div>
-      </div>
-
-      <%= f.label :duration, class: 'label', label: "How long do you have ? " %>
-      <div class="input">
-        <div class="form-group radio_buttons optional criterium_duration form-group-valid">
-          <input type="hidden" name="criterium[duration]" value="">
-          <div class="form-check">
-            <input class="form-check-input is-valid radio_buttons optional" type="radio" value="105" name="criterium[duration]" id="criterium_duration_105">
-            <label class="form-check-label collection_radio_buttons" for="criterium_duration_105"><%= image_tag "boatcoule.png", alt: "alttext", class:"home-logo" %>
-            <div class="navet"><%= image_tag "12titanic.png", alt: "alttext", class:"any" %></div>
-            </label>
-          </div>
-          <div class="form-check">
-            <input class="form-check-input is-valid radio_buttons optional" type="radio" value="150" checked="checked" name="criterium[duration]" id="criterium_duration_150">
-            <label class="form-check-label collection_radio_buttons" for="criterium_duration_150"><%= image_tag "boatsemi.png", alt: "alttext", class:"home-logo" %>
-            <div class="navet"><%= image_tag "34titanic.png", alt: "alttext", class:"any" %></div>
-            </label>
-          </div>
-          <div class="form-check">
-            <input class="form-check-input is-valid radio_buttons optional" type="radio" value="500" name="criterium[duration]" id="criterium_duration_500">
-            <label class="form-check-label collection_radio_buttons" for="criterium_duration_500"><%= image_tag "boat.png", alt: "alttext", class:"home-logo" %>
-              <div class="navet"><%= image_tag "1titanic.png", alt: "alttext", class:"any" %>
-            </label>
+          <%= f.label :rating, class: 'label', label: "You're in the mood for ..."  %>
+          <div class="input">
+            <div class="form-group radio_buttons optional criterium_rating form-group-valid">
+              <input type="hidden" name="criterium[rating]" value="">
+              <div class="form-check">
+                <input class="form-check-input is-valid radio_buttons optional" type="radio" value="4" name="criterium[rating]" id="criterium_rating_4">
+                <label class="form-check-label collection_radio_buttons" for="criterium_rating_4"><%= image_tag "navet.png", alt: "alttext", class:"home-logo" %>
+                  <div class="navet"><%= image_tag "any2.png", alt: "alttext", class:"any" %></div>
+                </label>
               </div>
+              <div class="form-check"><input class="form-check-input is-valid radio_buttons optional" type="radio" value="6" checked="checked" name="criterium[rating]" id="criterium_rating_6">
+                <label class="form-check-label collection_radio_buttons" for="criterium_rating_6"><%= image_tag "popcorn.png", alt: "alttext", class:"home-logo" %>
+                  <div class="navet"><%= image_tag "blockbuster2.png", alt: "alttext", class:"any" %></div>
+                </label>
+              </div>
+              <div class="form-check"><input class="form-check-input is-valid radio_buttons optional" type="radio" value="8" name="criterium[rating]" id="criterium_rating_8">
+                <label class="form-check-label collection_radio_buttons" for="criterium_rating_8"><%= image_tag "cerises.png", alt: "alttext", class:"home-logo" %>
+                  <div class="navet"><%= image_tag "only2.png", alt: "alttext", class:"any" %></div>
+                </label>
+              </div>
+            </div>
+          </div>
+
+          <%= f.label :duration, class: 'label', label: "How long do you have ? " %>
+          <div class="input">
+            <div class="form-group radio_buttons optional criterium_duration form-group-valid">
+              <input type="hidden" name="criterium[duration]" value="">
+              <div class="form-check">
+                <input class="form-check-input is-valid radio_buttons optional" type="radio" value="105" name="criterium[duration]" id="criterium_duration_105">
+                <label class="form-check-label collection_radio_buttons" for="criterium_duration_105"><%= image_tag "boatcoule.png", alt: "alttext", class:"home-logo" %>
+                  <div class="navet"><%= image_tag "12titanic.png", alt: "alttext", class:"any" %></div>
+                </label>
+              </div>
+              <div class="form-check">
+                <input class="form-check-input is-valid radio_buttons optional" type="radio" value="150" checked="checked" name="criterium[duration]" id="criterium_duration_150">
+                <label class="form-check-label collection_radio_buttons" for="criterium_duration_150"><%= image_tag "boatsemi.png", alt: "alttext", class:"home-logo" %>
+                <div class="navet"><%= image_tag "34titanic.png", alt: "alttext", class:"any" %></div>
+                </label>
+              </div>
+              <div class="form-check">
+                <input class="form-check-input is-valid radio_buttons optional" type="radio" value="500" name="criterium[duration]" id="criterium_duration_500">
+                <label class="form-check-label collection_radio_buttons" for="criterium_duration_500"><%= image_tag "boat.png", alt: "alttext", class:"home-logo" %>
+                  <div class="navet"><%= image_tag "1titanic.png", alt: "alttext", class:"any" %>
+                  </div>
+                </label>
+              </div>
+            </div>
+            <%= f.button :submit %>
           </div>
         </div>
-      <%= f.button :submit %>
-      </div>
-   <% end  %>
-  </div>
-<% end %>
+     <% end %>
+    </div>
+  <% end %>
+</div>
 
+<canvas id="canvas" class="d-none">Canvas is not supported in your browser.</canvas>
+<canvas id="canvas2" class="d-none">Canvas is not supported in your browser.</canvas>
