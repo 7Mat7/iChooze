@@ -43,7 +43,7 @@
 
     <div class="movie-btn">
       <% translate_platform(current_user.criterium.platforms).each do |platform| %>
-        <% @movie.urls.find do |link| %>
+        <% @movie.urls.select do |link| %>
           <% if link.include?(platform) %>
             <%= simple_form_for @vue, url: watch_path, method: 'post' do |f| %>
               <%= hidden_field_tag(:movie_id, @movie.id) %>
