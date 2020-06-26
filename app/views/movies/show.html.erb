@@ -1,5 +1,4 @@
 <% content_for(:body_style) { "background-image: linear-gradient(rgba(255,255,255,0.4),rgba(255,255,255,0.4)), url(#{@movie.photo_url}); background-size: cover; background-position: 50% 25%;"} %>
-
   <div class="movie-ctn">
     <div class="responsive">
           <%= image_tag @movie.photo_url, alt: @movie.title %>
@@ -43,7 +42,7 @@
       </div>
 
     <div class="movie-btn">
-      <% Criterium::PLATFORMS_FULL_NAME.each do |platform| %>
+      <% translate_platform(current_user.criterium.platforms).each do |platform| %>
         <% @movie.urls.find do |link| %>
           <% if link.include?(platform) %>
             <%= simple_form_for @vue, url: watch_path, method: 'post' do |f| %>
