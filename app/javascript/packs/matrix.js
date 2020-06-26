@@ -46,7 +46,7 @@ var canvas = document.getElementById( 'canvas' ),
       ctx2.font = fontSize+"px san-serif";
       ctx2.fillText(this.value,this.x,this.y);
 
-        ctx.fillStyle = "#163B50";
+        ctx.fillStyle = "#16F4D0";
         ctx.font = fontSize+"px san-serif";
         ctx.fillText(this.value,this.x,this.y);
 
